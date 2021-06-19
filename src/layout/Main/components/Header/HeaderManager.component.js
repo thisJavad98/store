@@ -39,24 +39,24 @@ NavbarToggler,
 NavbarBrand,
 Nav,
 NavItem,
-NavLink,
-
+NavLink
 } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 const HeaderManager = (props) => {
 const [isOpen, setIsOpen] = useState(false);
 const toggle = () => setIsOpen(!isOpen);
 return(
 
-    <div className='shadow bg-white rounded'>
+    <header className='shadow bg-white rounded'>
         <Navbar color="light" light expand="md" className='p-3 d-flex justify-content-between' >
             <span>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem className='me-3'>
-                            <NavLink className='text-primary' href="/" >
-                                بازشگت به سایت
-                            </NavLink>
+                            <Link className='text-decoration-none' to="/">
+                                بازگشت به سایت
+                            </Link> 
                         </NavItem>
                         
                     </Nav>
@@ -78,9 +78,9 @@ return(
                 </Collapse>
             </span>
             <span>
-                <NavbarBrand href="/" >
+                <NavbarBrand>
                     <span>
-                        پنل مدیریت فورشگاه
+                        پنل مدیریت فروشگاه
                     </span>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
@@ -88,7 +88,7 @@ return(
             
             
         </Navbar>
-    </div>
+    </header>
     );
 }
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 /* import { Container, Jumbotron, Button } from 'reactstrap'; */
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginPage from "../src/pages/manager/Login.page"
+import AppRoute from "../src/route/App.route"
 
 /* const element=
 <>
@@ -15,7 +15,7 @@ import LoginPage from "../src/pages/manager/Login.page"
 
 ReactDOM.render(
   <>
-    <LoginPage/>
+    <AppRoute/>
   </>
   ,
   document.getElementById('root')

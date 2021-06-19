@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import { Button, Form, FormGroup, Label, Input , FormText } from "reactstrap";
+import {Link} from 'react-router-dom';
 
 class LoginPage extends Component{
     render(){
@@ -22,9 +23,9 @@ class LoginPage extends Component{
                         <Button className='ps-5 pe-5'color="primary">ورود</Button>
                     </div>
                     <div className='pt-4'>
-                        <Button color="link" className='text-decoration-none'>
-                            بازگشت به سایت
-                        </Button >
+                            <Link className='text-decoration-none' to="/">
+                                بازگشت به سایت
+                            </Link>                          
                     </div>
                 </Form>
             </div>

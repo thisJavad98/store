@@ -28,10 +28,10 @@ class HeaderCustomer extends Component{
     }
 
 }
-
 export default HeaderCustomer; */
 
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import { RiShoppingCartLine } from "react-icons/ri";
 import {
   Collapse,
@@ -49,7 +49,7 @@ const HeaderCustomer = (props) => {
     const toggle = () => setIsOpen(!isOpen);
     return(
 
-        <div className='shadow bg-white rounded'>
+        <header className='shadow bg-white rounded'>
             <Navbar color="light" light expand="md" className='p-3' >
                 <>
                     <Collapse isOpen={isOpen} navbar>
@@ -61,22 +61,30 @@ const HeaderCustomer = (props) => {
                                 </NavLink>
                             </NavItem>
                             <NavItem className='border rounded'>
-                                <NavLink href="/">مدیریت</NavLink>
+                                <NavLink href="/login">مدیریت</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
                 </>
                 <>
                     <NavbarBrand href="/" >
-                        <span>فروشگاه جواد</span>
-                        <span className='ps-3'><RiShoppingCartLine /></span>
+                        <span>
+                            <Link className='text-decoration-none text-dark' to="/">
+                                فروشگاه جواد
+                            </Link> 
+                        </span>
+                        <span className='ps-3'>
+                            <Link className='text-decoration-none text-dark' to="/">
+                                <RiShoppingCartLine />
+                            </Link>
+                        </span>
                     </NavbarBrand>
                     <NavbarToggler onClick={toggle} />
                 </>
                 
                 
             </Navbar>
-        </div>
+        </header>
         );
 }
 
