@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 /* import { Container, Jumbotron, Button } from 'reactstrap'; */
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HeaderManager from "../src/layout/Main/components/Header/HeaderManager.component"
+import LoginPage from "../src/pages/manager/Login.page"
 
 /* const element=
 <>
@@ -15,7 +15,7 @@ import HeaderManager from "../src/layout/Main/components/Header/HeaderManager.co
 
 ReactDOM.render(
   <>
-    <HeaderManager/>
+    <LoginPage/>
   </>
   ,
   document.getElementById('root')
