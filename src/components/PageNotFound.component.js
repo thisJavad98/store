@@ -10,7 +10,6 @@ import React from "react";
                         Page Not Found!!!
                     </h1>
                 </div>
-                
             </div>
         </>
     );

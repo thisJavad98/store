@@ -13,11 +13,23 @@ class AppRoute extends Component{
                 <Switch>
                     <Route path='/products'>
                         <MainLayout headerType='customer'/>
-                        this is products page!!!
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is products page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/product'>
                         <MainLayout headerType='customer'/>
-                        this is product page!!!
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is product page!!!
+                                </h1>
+                            </div>
+                        </div>  
                     </Route>
                     <Route path='/basket'>
                         <MainLayout headerType='customer'/>
@@ -25,16 +37,40 @@ class AppRoute extends Component{
                     </Route>
                     <Route path='/checkout'>
                         <MainLayout headerType='customer'/>
-                        this is check out page!!!
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is check out page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/payment'>
-                        this is payment page!!!
+                    <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is payment page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/payment-result-success'>
-                        this is success payment page!!!
+                    <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is success payment page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/payment-result-fail'>
-                        this is fail payment page!!!
+                    <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is fail payment page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path="/panel-login">
                         <LoginPage/>
@@ -45,14 +81,33 @@ class AppRoute extends Component{
                     </Route>
                     <Route path='/panel-quantity'>
                         <MainLayout headerType='manager'/>
-                        this is quantity panel page!!!
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is quantity panel page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/panel-orders'>
                         <MainLayout headerType='manager'/>
-                        this is orders panel page!!!
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    This is orders panel page!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/' exact>
                         <MainLayout headerType='customer'/>
+                        <div className='vh-100 d-flex justify-content-center align-items-center'>
+                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
+                                <h1 className="display-3 bg-light p-2">
+                                    First page of site!!!
+                                </h1>
+                            </div>
+                        </div>
                     </Route>
                     <Route path='/*'>
                         <PageNotFoundl/>

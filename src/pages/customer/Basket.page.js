@@ -1,7 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import { Link } from "react-router-dom";
-import { Button , Table } from 'reactstrap';
+import { Table } from 'reactstrap';
 
 class Basket extends Component{
     render(){
@@ -58,13 +58,13 @@ class Basket extends Component{
                                 </tr>
                             </tbody>
                         </Table>
-                        <div className='d-flex justify-content-between m-5 mt-5'>
+                        <div className='d-flex justify-content-between align-item-center m-5 mt-5'>
                             <div className='h4'>
                                 جمع : ۱.۱۲۲.۰۰۰ تومان
                             </div>
-                            <Button color='success' className='p-2'>
+                            <Link to='/checkout' className='text-decoration-none bg-success text-light p-2 rounded'>
                                 نهایی کردن سبد خرید
-                            </Button >
+                            </Link>
                         </div>
                     </div>
                 </div>
