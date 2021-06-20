@@ -39,7 +39,8 @@ NavbarToggler,
 NavbarBrand,
 Nav,
 NavItem,
-NavLink
+NavLink,
+
 } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
@@ -48,7 +49,7 @@ const [isOpen, setIsOpen] = useState(false);
 const toggle = () => setIsOpen(!isOpen);
 return(
 
-    <header className='shadow bg-white rounded'>
+    <header className='shadow bg-white rounded sticky-top'>
         <Navbar color="light" light expand="md" className='p-3 d-flex justify-content-between' >
             <span>
                 <Collapse isOpen={isOpen} navbar>
@@ -65,19 +66,19 @@ return(
             <span>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
-                        <NavItem className='border rounded-start ms-3 pe-4 ps-4'>
+                        <NavItem className='border rounded-start'>
                            <NavLink>
-                                <Link className='text-decoration-none '  to='/orders'>سفارش ها</Link>
+                                <Link className='text-decoration-none p-3 text-dark '  to='/panel-orders'>سفارش ها</Link>
                             </NavLink>
                         </NavItem>
-                        <NavItem className='border rounded-left pe-5 ps-5'>
+                        <NavItem className='border rounded-left'>
                             <NavLink>
-                                <Link className='text-decoration-none '  to='/inventoryManage'>موجودی و قیمت ها</Link>
+                                <Link className='text-decoration-none ps-5 pe-5 text-dark '  to='/panel-quantity'>موجودی و قیمت ها</Link>
                             </NavLink>
                         </NavItem>
-                        <NavItem className='border rounded-end pe-4 ps-4 '>
-                            <NavLink >
-                                <Link className='text-decoration-none '  to='/manageProduct'>کالاها</Link>
+                        <NavItem className='border rounded-end'>
+                            <NavLink>
+                                <Link className='text-decoration-none p-3 text-dark '  to='/panel-product'>کالاها</Link>
                             </NavLink>
                         </NavItem>
                     </Nav>

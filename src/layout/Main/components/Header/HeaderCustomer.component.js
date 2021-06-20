@@ -33,6 +33,8 @@ export default HeaderCustomer; */
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { RiShoppingCartLine } from "react-icons/ri";
+import { AiFillHome } from "react-icons/ai";
+import { IoMdBasket } from "react-icons/io";
 import {
   Collapse,
   Navbar,
@@ -49,19 +51,23 @@ const HeaderCustomer = (props) => {
     const toggle = () => setIsOpen(!isOpen);
     return(
 
-        <header className='shadow bg-white rounded'>
+        <header className='shadow bg-white rounded sticky-top'>
             <Navbar color="light" light expand="md" className='p-3' >
                 <>
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
-                            <NavItem className='border rounded me-2'>
+                            <Badge className='bg-warning h-25 m-0'>4</Badge>
+                            <NavItem className='d-flex align-items-center'>
                                 <NavLink href="/basket" >
                                     سبد خرید
-                                    <Badge className='bg-warning '>4</Badge>
+                                    <IoMdBasket/>
                                 </NavLink>
                             </NavItem>
-                            <NavItem className='border rounded'>
-                                <NavLink href="/login">مدیریت</NavLink>
+                            <NavItem className='ms-3 d-flex align-items-center'>
+                                <NavLink href="/panel-login">
+                                    مدیریت
+                                    <AiFillHome/>
+                                </NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

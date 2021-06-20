@@ -11,16 +11,45 @@ class AppRoute extends Component{
         return(
             <BrowserRouter>
                 <Switch>
-                    <Route path='/manageProduct'>
-                        <MainLayout headerType='manager'/>
-                        <ManageProduct/>
+                    <Route path='/products'>
+                        <MainLayout headerType='customer'/>
+                        this is products page!!!
                     </Route>
-                    <Route path="/login">
-                        <LoginPage/>
+                    <Route path='/product'>
+                        <MainLayout headerType='customer'/>
+                        this is product page!!!
                     </Route>
                     <Route path='/basket'>
                         <MainLayout headerType='customer'/>
                         <Basket/>
+                    </Route>
+                    <Route path='/checkout'>
+                        <MainLayout headerType='customer'/>
+                        this is check out page!!!
+                    </Route>
+                    <Route path='/payment'>
+                        this is payment page!!!
+                    </Route>
+                    <Route path='/payment-result-success'>
+                        this is success payment page!!!
+                    </Route>
+                    <Route path='/payment-result-fail'>
+                        this is fail payment page!!!
+                    </Route>
+                    <Route path="/panel-login">
+                        <LoginPage/>
+                    </Route>
+                    <Route path='/panel-product'>
+                        <MainLayout headerType='manager'/>
+                        <ManageProduct/>
+                    </Route>
+                    <Route path='/panel-quantity'>
+                        <MainLayout headerType='manager'/>
+                        this is quantity panel page!!!
+                    </Route>
+                    <Route path='/panel-orders'>
+                        <MainLayout headerType='manager'/>
+                        this is orders panel page!!!
                     </Route>
                     <Route path='/' exact>
                         <MainLayout headerType='customer'/>
