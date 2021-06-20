@@ -3,6 +3,7 @@ import {Component} from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import MainLayout from "../layout/Main/Main.layout";
 import LoginPage from "../pages/manager/Login.page"
+import ManageProduct from '../pages/manager/ProductManager/ProductManage.page'
 
 class AppRoute extends Component{
     render(){
@@ -11,6 +12,7 @@ class AppRoute extends Component{
                 <Switch>
                     <Route path='/manager'>
                         <MainLayout headerType='manager'/>
+                        <ManageProduct/>
                     </Route>
                     <Route path="/login">
                         <LoginPage/>
@@ -18,7 +20,6 @@ class AppRoute extends Component{
                     <Route path='/'>
                         <MainLayout headerType='customer'/>
                     </Route>
-                    
                 </Switch>
             </BrowserRouter>
         );
