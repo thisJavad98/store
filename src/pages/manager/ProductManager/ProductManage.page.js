@@ -54,6 +54,33 @@ class ManageProduct extends Component{
                                 <Link className='m-2'> حذف </Link>
                             </td>
                         </tr>
+                        <tr>
+                            <th></th>
+                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
                     </tbody>
                     
                 </Table>
