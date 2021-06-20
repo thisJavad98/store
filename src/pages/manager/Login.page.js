@@ -7,7 +7,7 @@ class LoginPage extends Component{
     render(){
         return(
             <div className='vh-100 d-flex justify-content-center align-items-center'>        
-                <Form className= 'p-4 border rounded shadow bg-white rounded' >
+                <Form className= 'p-4 border rounded shadow p-3 mb-5 bg-white rounded' >
                     <FormText className='d-flex justify-content-center fs-4'>
                         ورود به پنل مدیریت فروشگاه جواد
                     </FormText>
