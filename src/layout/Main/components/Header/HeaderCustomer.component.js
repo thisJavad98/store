@@ -55,9 +55,9 @@ const HeaderCustomer = (props) => {
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
                             <NavItem className='border rounded me-2'>
-                                <NavLink href="/" >
+                                <NavLink href="/basket" >
                                     سبد خرید
-                                    <Badge className='bg-warning '>0</Badge>
+                                    <Badge className='bg-warning '>4</Badge>
                                 </NavLink>
                             </NavItem>
                             <NavItem className='border rounded'>

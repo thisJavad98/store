@@ -66,14 +66,18 @@ return(
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem className='border rounded-start ms-3 pe-4 ps-4'>
-                           <NavLink>سفارش ها</NavLink>
+                           <NavLink>
+                                <Link className='text-decoration-none '  to='/orders'>سفارش ها</Link>
+                            </NavLink>
                         </NavItem>
                         <NavItem className='border rounded-left pe-5 ps-5'>
-                            <NavLink>موجودی و قیمت ها</NavLink>
+                            <NavLink>
+                                <Link className='text-decoration-none '  to='/inventoryManage'>موجودی و قیمت ها</Link>
+                            </NavLink>
                         </NavItem>
                         <NavItem className='border rounded-end pe-4 ps-4 '>
                             <NavLink >
-                                <Link className='text-decoration-none '  to='/manager/manageProduct'>کالاها</Link>
+                                <Link className='text-decoration-none '  to='/manageProduct'>کالاها</Link>
                             </NavLink>
                         </NavItem>
                     </Nav>

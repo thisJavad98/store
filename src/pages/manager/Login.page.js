@@ -1,6 +1,6 @@
 import React from "react";
 import {Component} from "react";
-import { Button, Form, FormGroup, Label, Input , FormText } from "reactstrap";
+import {  Form, FormGroup, Label, Input , FormText ,NavLink} from "reactstrap";
 import {Link} from 'react-router-dom';
 
 class LoginPage extends Component{
@@ -20,12 +20,12 @@ class LoginPage extends Component{
                         <Input type='password' id='password'/>
                     </FormGroup>
                     <div className='d-flex justify-content-center'>
-                        <Button className='ps-5 pe-5'color="primary">ورود</Button>
+                        <NavLink className='rounded text-decoration-none text-light bg-primary' href='/manageProduct'>ورود</NavLink>
                     </div>
                     <div className='pt-4'>
-                            <Link className='text-decoration-none' to="/">
-                                بازگشت به سایت
-                            </Link>                          
+                        <Link className='text-decoration-none' to="/">
+                            بازگشت به سایت
+                        </Link>                          
                     </div>
                 </Form>
             </div>
