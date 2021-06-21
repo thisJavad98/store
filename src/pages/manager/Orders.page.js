@@ -12,7 +12,7 @@ class OrdersPanel extends Component{
                         <FormGroup tag="fieldset" className='d-flex'>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="radio1" />{'سفارش های تحویل داده شده'}
+                                    <Input type="radio" name="radio1" checked/>{'سفارش های تحویل داده شده'}
                                 </Label>
                             </FormGroup>
                             <FormGroup check className='ms-5'>

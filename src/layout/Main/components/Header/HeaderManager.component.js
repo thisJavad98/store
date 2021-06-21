@@ -70,19 +70,19 @@ const HeaderManager = (props) => {
                 <span>
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
-                            <NavItem className={panelOrders} onClick={()=>{ordersActive('border rounded-start bg-warning'); quntityActive('border bg-white');productActive('border rounded-end bg-white')}}>
+                            <NavItem className={panelOrders} >
                             <NavLink>
-                                    <Link className='text-decoration-none p-3 text-secondary' onClick={()=>{}}  to='/panel-orders'>سفارش ها</Link>
+                                    <Link className='text-decoration-none p-3 text-secondary' onClick={()=>{ordersActive('border rounded-start bg-warning'); quntityActive('border bg-white');productActive('border rounded-end bg-white')}} to='/panel-orders'>سفارش ها</Link>
                                 </NavLink>
                             </NavItem>
-                            <NavItem className={panelQuntity} onClick={()=>{quntityActive('border bg-warning');ordersActive('border rounded-start bg-white');productActive('border rounded-end bg-white')}}>
+                            <NavItem className={panelQuntity} >
                                 <NavLink>
-                                    <Link className='text-decoration-none ps-5 pe-5 text-secondary'  to='/panel-quantity'>موجودی و قیمت ها</Link>
+                                    <Link className='text-decoration-none ps-5 pe-5 text-secondary' onClick={()=>{quntityActive('border bg-warning');ordersActive('border rounded-start bg-white');productActive('border rounded-end bg-white')}} to='/panel-quantity'>موجودی و قیمت ها</Link>
                                 </NavLink>
                             </NavItem>
-                            <NavItem className={panelProduct} onClick={()=>{productActive('border rounded-end bg-warning');quntityActive('border bg-white');ordersActive('border rounded-start bg-white');}}>
+                            <NavItem className={panelProduct} >
                                 <NavLink>
-                                    <Link className='text-decoration-none p-3 text-secondary'  to='/panel-product'>کالاها</Link>
+                                    <Link className='text-decoration-none p-3 text-secondary' onClick={()=>{productActive('border rounded-end bg-warning');quntityActive('border bg-white');ordersActive('border rounded-start bg-white');}} to='/panel-product'>کالاها</Link>
                                 </NavLink>
                             </NavItem>
                         </Nav>
