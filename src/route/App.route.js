@@ -3,9 +3,12 @@ import {Component} from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageNotFoundl from "../components/PageNotFound.component";
 import MainLayout from "../layout/Main/Main.layout";
-import LoginPage from "../pages/manager/Login.page"
-import ManageProduct from '../pages/manager/ProductManager/ProductManage.page'
-import Basket from "../pages/customer/Basket.page"
+import LoginPage from "../pages/manager/Login.page";
+import ManageProduct from '../pages/manager/ProductManager/ProductManage.page';
+import Basket from "../pages/customer/Basket.page";
+import QuantityPanel from "../pages/manager/InventoryManage.page";
+import OrdersPanel from "../pages/manager/Orders.page"
+
 class AppRoute extends Component{
     render(){
         return(
@@ -76,28 +79,16 @@ class AppRoute extends Component{
                         <LoginPage/>
                     </Route>
                     <Route path='/panel-product'>
-                        <MainLayout headerType='manager'/>
+                        <MainLayout headerType='panelProduct'/>
                         <ManageProduct/>
                     </Route>
                     <Route path='/panel-quantity'>
-                        <MainLayout headerType='manager'/>
-                        <div className='vh-100 d-flex justify-content-center align-items-center'>
-                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
-                                <h1 className="display-3 bg-light p-2">
-                                    This is quantity panel page!!!
-                                </h1>
-                            </div>
-                        </div>
+                        <MainLayout headerType='panelQuntity'/>
+                        <QuantityPanel />
                     </Route>
                     <Route path='/panel-orders'>
-                        <MainLayout headerType='manager'/>
-                        <div className='vh-100 d-flex justify-content-center align-items-center'>
-                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
-                                <h1 className="display-3 bg-light p-2">
-                                    This is orders panel page!!!
-                                </h1>
-                            </div>
-                        </div>
+                        <MainLayout headerType='panelOrders'/>
+                        <OrdersPanel/>
                     </Route>
                     <Route path='/' exact>
                         <MainLayout headerType='customer'/>
