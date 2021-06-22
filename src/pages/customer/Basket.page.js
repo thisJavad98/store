@@ -20,6 +20,7 @@ class Basket extends Component{
                                     <th> کالا </th>
                                     <th> قیمت </th>
                                     <th> تعداد </th>
+                                    <th> مجموع </th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -28,6 +29,7 @@ class Basket extends Component{
                                     <th>روغن سرخ کردنی سمن - ۱.۳۵ کیلویی</th>
                                     <td>۱۰.۰۰۰</td>
                                     <td>۲۰</td>
+                                    <td> ۲۰۰.۰۰۰</td>
                                     <td>
                                         <Link> حذف </Link>
                                     </td>
@@ -36,6 +38,7 @@ class Basket extends Component{
                                     <th>کره سنتی شکلی - ۱۰۰ گرمی</th>
                                     <td>۲۵.۵۰۰</td>
                                     <td>۴۰۰</td>
+                                    <td> ۲۰۰.۰۰۰</td>
                                     <td>
                                         <Link> حذف </Link>
                                     </td>
@@ -44,6 +47,7 @@ class Basket extends Component{
                                     <th>قهوه اسپرسو بن مانو - ۳۶۰ گرمی</th>
                                     <td>۱۶.۷۰۰</td>
                                     <td>۴۰</td>
+                                    <td> ۲۰۰.۰۰۰</td>
                                     <td>
                                         <Link> حذف </Link>
                                     </td>
@@ -52,6 +56,7 @@ class Basket extends Component{
                                     <th>روغن سرخ کردنی سمن - ۱.۳۵ کیلویی</th>
                                     <td>۱۰.۰۰۰</td>
                                     <td>۲۰</td>
+                                    <td> ۲۰۰.۰۰۰</td>
                                     <td>
                                         <Link> حذف </Link>
                                     </td>
