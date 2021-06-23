@@ -8,6 +8,7 @@ import ManageProduct from '../pages/manager/ProductManager/ProductManage.page';
 import Basket from "../pages/customer/Basket.page";
 import QuantityPanel from "../pages/manager/InventoryManage.page";
 import OrdersPanel from "../pages/manager/Orders.page"
+import HomePage from "../pages/customer/Home.page";
 
 class AppRoute extends Component{
     render(){
@@ -92,13 +93,7 @@ class AppRoute extends Component{
                     </Route>
                     <Route path='/' exact>
                         <MainLayout headerType='customer'/>
-                        <div className='vh-100 d-flex justify-content-center align-items-center'>
-                            <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
-                                <h1 className="display-3 bg-light p-2">
-                                    First page of site!!!
-                                </h1>
-                            </div>
-                        </div>
+                        <HomePage/>
                     </Route>
                     <Route path='/*'>
                         <PageNotFoundl/>
