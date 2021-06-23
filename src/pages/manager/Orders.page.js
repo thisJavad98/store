@@ -2,9 +2,20 @@ import React from "react";
 import {Component} from "react";
 import { Link } from "react-router-dom";
 import { Table , FormGroup , Label, Input } from 'reactstrap';
+import {getOrders} from "../../api/JavadShop.api"
 
 class OrdersPanel extends Component{
+    state={
+        orders:[]
+    }
+    async componentDidMount(){
+        this.setState({orders:await getOrders()})
+        console.log(this.state.orders.map((item)=>{console.log(item.name)}))
+        console.log(this.state.orders)
+
+    }
     render(){
+        
         return(
             <>
                 <div className='d-flex justify-content-between align-items-center m-5 '>
@@ -37,6 +48,24 @@ class OrdersPanel extends Component{
                         </tr>
                     </thead>
                     <tbody>
+                        {this.state.orders.map(item=>{
+
+                            return(
+                                <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td>{item.totalPrice}</td>
+                                <td className='d-flex justify-content-center'>{new Date(item.orderRegister).getTime()}</td>
+                                <td>
+                                    <Link className='d-flex justify-content-center'>
+                                        برسی سفارش
+                                    </Link>
+                                </td>   
+                            </tr>
+                            )
+                            
+                        })}
+                    </tbody>
+                    {/* <tbody>
                         <tr>
                             <td> اکبر زمانی </td>
                             <td> ۹۲۰.۰۰۰ </td>
@@ -97,7 +126,7 @@ class OrdersPanel extends Component{
                                 </Link>
                             </td>
                         </tr>
-                    </tbody>
+                    </tbody> */}
                 </Table>
                 </div>
             </>

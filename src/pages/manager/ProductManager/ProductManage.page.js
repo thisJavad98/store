@@ -3,8 +3,18 @@ import {Component} from "react";
 import PeoductManagerModal from'../ProductManager/ProductManager.modal';
 import { Link } from "react-router-dom";
 import { Table ,Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { getProducts } from "../../../api/JavadShop.api";
 
 class ManageProduct extends Component{
+    state={
+        products:[]
+    }
+    async componentDidMount(){
+        this.setState({products:await getProducts()})
+        console.log(this.state.products.map((item)=>{console.log(item.name)}))
+        console.log(this.state.products)
+
+    }
     render(){
         return(
             <>
@@ -27,61 +37,76 @@ class ManageProduct extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th></th>
-                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
-                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
-                            <td>
-                                <Link className='m-2'> ویرایش </Link>
-                                <Link className='m-2'> حذف </Link>
-                            </td>
-                        </tr>
+                        {this.state.products.map(item=>{
+                            return(
+                                <tr>
+                                    <th></th>
+                                    <td>{item.name}</td>
+                                    <td>{item.groupTitle}</td>
+                                    <td>
+                                        <Link className='m-2'> ویرایش </Link>
+                                        <Link className='m-2'> حذف </Link>
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
+                    {/* <tbody>
+                        <tr>
+                            <th></th>
+                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <td>مواد غدایی /کالا های اساسی و خوار و بار</td>
+                            <td>
+                                <Link className='m-2'> ویرایش </Link>
+                                <Link className='m-2'> حذف </Link>
+                            </td>
+                        </tr>
+                    </tbody> */}
                     
                 </Table>
                 <div className='d-flex justify-content-center mt-4'>

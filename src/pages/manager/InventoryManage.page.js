@@ -1,8 +1,18 @@
 import React from "react";
 import {Component} from "react";
 import { Table , Button } from 'reactstrap';
+import { getProducts } from "../../api/JavadShop.api";
 
 class QuantityPanel extends Component{
+    state={
+        products:[]
+    }
+    async componentDidMount(){
+        this.setState({products:await getProducts()})
+        console.log(this.state.products.map((item)=>{console.log(item.name)}))
+        console.log(this.state.products)
+
+    }
     render(){
         return(
             <>
@@ -26,47 +36,58 @@ class QuantityPanel extends Component{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
-                            <td> ۱۰.۰۰۰ </td>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
-                            <td> ۱۰.۰۰۰ </td>
-                            <th> ۲۰۰ </th>
-                        </tr>
-                        <tr>
-                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
-                            <th> ۱۰.۰۰۰ </th>
-                            <th> ۲۰۰ </th>
-                        </tr>
+                        {this.state.products.map(item=>{
+                            return(
+                                <tr>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.inventory}</td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
+                    {/* <tbody>
+                        <tr>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
+                            <td> ۱۰.۰۰۰ </td>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>کره شکلی سنتی-۱۰۰ گرمی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>لوبیا قرمز-۹۰۰ گرمی</td>
+                            <td> ۱۰.۰۰۰ </td>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                        <tr>
+                            <td>روغن سرخ کردنی-۱.۳۵ کیلویی</td>
+                            <th> ۱۰.۰۰۰ </th>
+                            <th> ۲۰۰ </th>
+                        </tr>
+                    </tbody> */}
                 </Table>
                 </div>
             </>

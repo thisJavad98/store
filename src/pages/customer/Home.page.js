@@ -3,9 +3,6 @@ import { Component } from "react";
 import { getProducts } from "../../api/JavadShop.api";
 
 class HomePage extends Component {
-  componentDidMount() {
-    getProducts();
-  }
   render() {
     return (
       <>

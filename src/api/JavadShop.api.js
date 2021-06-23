@@ -5,10 +5,15 @@ const httpApi=axios.create();
 
 httpApi.defaults.baseURL = BASE_URL;
 
-export function getProducts(){
+export function getOrders(){
+    return httpApi.get(`/Order`)
+        .then((response)=>response.data)
+        .catch((error)=>console.log(error))
+}
 
-    return httpApi.get(`/Products`)
-        .then((response)=> console.log(response.data))
+export function getProducts(){
+    return httpApi.get('/Products')
+        .then((response)=>response.data)
         .catch((error)=> console.log(error))
 
 }
