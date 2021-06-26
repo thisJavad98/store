@@ -2,18 +2,28 @@ import React from "react";
 import {Component} from "react";
 import PeoductManagerModal from'../ProductManager/ProductManager.modal';
 import { Link } from "react-router-dom";
-import { Table ,Pagination, PaginationItem, PaginationLink } from 'reactstrap';
-import { getProducts } from "../../../api/JavadShop.api";
+import { Table ,Pagination, PaginationItem, PaginationLink, Input ,Form } from 'reactstrap';
+import { getGroupProduct, getProductByFilter, getProducts } from "../../../api/JavadShop.api";
 
 class ManageProduct extends Component{
     state={
-        products:[]
+        products:[],
+        groupTitle:[]
     }
     async componentDidMount(){
         this.setState({products:await getProducts()})
+        this.setState({groupTitle:await getGroupProduct()})
         console.log(this.state.products.map((item)=>{console.log(item.name)}))
         console.log(this.state.products)
 
+    }
+    productFilter = async(event)=>{
+        console.log((event.target.value).split("/")[1])
+
+        if(event.target.value=='دسته بندی کالا ها / همه')
+            this.setState({products:await getProducts()})
+        else
+            this.setState({products:await getProductByFilter((event.target.value).split("/")[1])})
     }
     render(){
         return(
@@ -32,17 +42,26 @@ class ManageProduct extends Component{
                         <tr>
                             <th>تصویر</th>
                             <th>نام کالا</th>
-                            <th>دسته بندی</th>
+                            <th>
+                                <Form action='/'>
+                                    <Input type="select" name="select" id="groupProducts" onChange={this.productFilter}>
+                                        <option>دسته بندی کالا ها / همه</option>
+                                        {this.state.groupTitle.map(item=>{
+                                            return(<option> {item.groupTitle}/{item.title}  </option>)
+                                        })}
+                                    </Input>
+                                </Form> 
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.products.map(item=>{
                             return(
-                                <tr>
-                                    <th></th>
+                                <tr key={item.id} >
+                                    <th className='d-flex justify-content-center'><img className='rounded-circle' width="80px" height='80px' src={item.avatar}/></th>
                                     <td>{item.name}</td>
-                                    <td>{item.groupTitle}</td>
+                                    <td>{item.groupTitle} / {item.group}</td>
                                     <td>
                                         <Link className='m-2'> ویرایش </Link>
                                         <Link className='m-2'> حذف </Link>

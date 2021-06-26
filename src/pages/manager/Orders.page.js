@@ -2,7 +2,7 @@ import React from "react";
 import {Component} from "react";
 import { Link } from "react-router-dom";
 import { Table , FormGroup , Label, Input } from 'reactstrap';
-import {getOrders} from "../../api/JavadShop.api"
+import {getOrders, getOrdersByFilter} from "../../api/JavadShop.api"
 
 class OrdersPanel extends Component{
     state={
@@ -14,6 +14,13 @@ class OrdersPanel extends Component{
         console.log(this.state.orders)
 
     }
+    orderFilter = async (event)=>{
+        if(event.target.value=='yes'){
+            this.setState({orders: await getOrdersByFilter(event.target.value)})
+        }else{
+            this.setState({orders: await getOrdersByFilter(event.target.value)})
+        }
+    }
     render(){
         
         return(
@@ -23,12 +30,12 @@ class OrdersPanel extends Component{
                         <FormGroup tag="fieldset" className='d-flex'>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="radio" name="radio1" checked/>{'سفارش های تحویل داده شده'}
+                                    <Input type="radio" name="radio1" value='yes' onClick={this.orderFilter}/>{'سفارش های تحویل داده شده'}
                                 </Label>
                             </FormGroup>
                             <FormGroup check className='ms-5'>
                                 <Label check>
-                                    <Input type="radio" name="radio1" />{'سفارش های درانتظار ارسال '} 
+                                    <Input type="radio" value='no' name="radio1" onClick={this.orderFilter}/>{'سفارش های درانتظار ارسال '} 
                                 </Label>
                             </FormGroup>
                         </FormGroup>

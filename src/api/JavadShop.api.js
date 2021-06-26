@@ -11,9 +11,28 @@ export function getOrders(){
         .catch((error)=>console.log(error))
 }
 
+export function getOrdersByFilter(status){
+    return httpApi.get(`/Order?deliverd=${status}`)
+        .then((response)=>response.data)
+        .catch((error)=>console.log(error))
+}
+
+export function getProductByFilter(groupProduct){
+    return httpApi.get(`Products?group=${groupProduct}`)
+        .then((response)=>response.data)
+        .catch((error)=>console.log(error))
+        
+}
+
 export function getProducts(){
     return httpApi.get('/Products')
         .then((response)=>response.data)
         .catch((error)=> console.log(error))
 
+}
+
+export function getGroupProduct(){
+    return httpApi.get('/groupProducts')
+        .then((response=>response.data))
+        .catch((error)=>console.log(error))
 }

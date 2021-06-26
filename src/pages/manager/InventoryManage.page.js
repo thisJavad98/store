@@ -38,7 +38,7 @@ class QuantityPanel extends Component{
                     <tbody>
                         {this.state.products.map(item=>{
                             return(
-                                <tr>
+                                <tr key={item.id}>
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
                                     <td>{item.inventory}</td>

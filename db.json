@@ -5,7 +5,7 @@
       "name": "شیر پگاه",
       "group": "شیر",
       "groupTitle": "لبنیات",
-      "price": 55,
+      "price": 12000,
       "inventory": 98,
       "date": 1624440380,
       "discription": "illo consequatur praesentium",
@@ -16,7 +16,7 @@
       "name": "شیر بیستون",
       "group": "شیر",
       "groupTitle": "لبنیات",
-      "price": 60,
+      "price": 6000,
       "inventory": 93,
       "date": 1624440320,
       "discription": "perspiciatis aspernatur et",
@@ -27,7 +27,7 @@
       "name": "ماست بیستون",
       "group": "ماست",
       "groupTitle": "لبنیات",
-      "price": 55,
+      "price": 5500,
       "inventory": 98,
       "date": 1624440380,
       "discription": "illo consequatur praesentium",
@@ -38,7 +38,7 @@
       "name": "ماست کم چرب",
       "group": "ماست",
       "groupTitle": "لبنیات",
-      "price": 60,
+      "price": 8000,
       "inventory": 93,
       "date": 1624440320,
       "discription": "perspiciatis aspernatur et",
@@ -49,7 +49,7 @@
       "name": "روغن سرخ کردنی",
       "group": "روغن",
       "groupTitle": "کالاهای اساسی و خاروبار",
-      "price": 55,
+      "price": 5500,
       "inventory": 98,
       "date": 1624440380,
       "discription": "illo consequatur praesentium",
@@ -60,7 +60,7 @@
       "name": "روغن مایع",
       "group": "روغن",
       "groupTitle": "کالاهای اساسی و خاربار",
-      "price": 60,
+      "price": 6000,
       "inventory": 93,
       "date": 1624440320,
       "discription": "perspiciatis aspernatur et",
@@ -71,11 +71,175 @@
       "name": "ماست محلی",
       "group": "ماست",
       "groupTitle": "لبنیات",
-      "price": 55,
+      "price": 5500,
+      "inventory": 98,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avata":"https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "8",
+      "name": "شیر پگاه",
+      "group": "شیر",
+      "groupTitle": "لبنیات",
+      "price": 8700,
       "inventory": 98,
       "date": 1624440380,
       "discription": "illo consequatur praesentium",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "9",
+      "name": "شیر بیستون",
+      "group": "شیر",
+      "groupTitle": "لبنیات",
+      "price":6400,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "10",
+      "name": "ماست بیستون",
+      "group": "ماست",
+      "groupTitle": "لبنیات",
+      "price": 23000,
+      "inventory": 98,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avata":"https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "11",
+      "name": "ماست کم چرب",
+      "group": "ماست",
+      "groupTitle": "لبنیات",
+      "price": 24000,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "12",
+      "name": "روغن سرخ کردنی",
+      "group": "روغن",
+      "groupTitle": "کالاهای اساسی و خاروبار",
+      "price": 14000,
+      "inventory": 98,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "13",
+      "name": "روغن مایع",
+      "group": "روغن",
+      "groupTitle": "کالاهای اساسی و خاربار",
+      "price": 15000,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "14",
+      "name": "ماست محلی",
+      "group": "ماست",
+      "groupTitle": "لبنیات",
+      "price": 16000,
+      "inventory": 98,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avata":"https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "15",
+      "name": "دوغ اناهیتا",
+      "group": "دوغ",
+      "groupTitle": "لبنیات",
+      "price":6900,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "16",
+      "name": "دوغ بیستون",
+      "group": "دوغ",
+      "groupTitle": "لبنیات",
+      "price": 28000,
+      "inventory": 128,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avata":"https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "17",
+      "name": "دوغ پونه",
+      "group": "دوغ",
+      "groupTitle": "لبنیات",
+      "price": 22200,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "18",
+      "name": "دوغ بدون گاز بیستون",
+      "group": "دوغ",
+      "groupTitle": "لبنیات",
+      "price": 14000,
+      "inventory": 98,
+      "date": 1624440380,
+      "discription": "illo consequatur praesentium",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "19",
+      "name": "دوغ گازدار",
+      "group": "دوغ",
+      "groupTitle": "لبنیات",
+      "price": 15000,
+      "inventory": 93,
+      "date": 1624440320,
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    }
+  ],
+  "groupProducts": [
+    {
+      "id": "1",
+      "icon": "http://placeimg.com/640/480/fashion",
+      "title": "شیر",
+      "groupTitle": "لبنیات"
+    },
+    {
+      "id": "2",
+      "icon": "http://placeimg.com/640/480/food",
+      "title": "دوغ",
+      "groupTitle": "لبنیات "
+    },
+    {
+      "id": "3",
+      "icon": "http://placeimg.com/640/480/sports",
+      "title": "ماست",
+      "groupTitle": "لبنیات"
+    },
+    {
+      "id": "4",
+      "icon": "http://placeimg.com/640/480/nightlife",
+      "title": "روغن",
+      "groupTitle": "کالای اساسی و خار و بار"
+    },
+    {
+      "id": "5",
+      "icon": "http://placeimg.com/640/480/food",
+      "title": "برنج",
+      "groupTitle": "کالای اساسی و خار و بار"
     }
   ],
   "Order": [
@@ -84,200 +248,220 @@
       "name": "جواد موقوفه ای",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"yes"
     },
     {
       "id": "2",
       "name": "علی حسنی",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"yes"
     },
     {
       "id": "3",
       "name": "محمد حسینی",
       "address": "کرمانشاه ازادی",
       "phone": "854-330-3395",
-      "totalPrice": "740.00",
+      "totalPrice": "740.000",
       "deliverTime": 1624227012,
       "orderRegister": 1624227012,
-      "deliveryEndTime": 1624227012
+      "deliveryEndTime": 1624227012,
+      "deliverd":"yes"
     },
     {
       "id": "4",
       "name": "اصغر فرهادی",
       "address": "کرمانشاه اندیشه",
       "phone": "525-884-5052",
-      "totalPrice": "434.00",
+      "totalPrice": "434.000",
       "deliverTime": 1624226952,
       "orderRegister": 1624226952,
-      "deliveryEndTime": 1624226952
+      "deliveryEndTime": 1624226952,
+      "deliverd":"yes"
     },
     {
       "id": "5",
       "name": "علی اکبری",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"yes"
     },
     {
       "id": "6",
       "name": "غلام محمدزاده",
       "address": "کرمانشاه ازادی",
       "phone": "854-330-3395",
-      "totalPrice": "740.00",
+      "totalPrice": "740.000",
       "deliverTime": 1624227012,
       "orderRegister": 1624227012,
-      "deliveryEndTime": 1624227012
+      "deliveryEndTime": 1624227012,
+      "deliverd":"yes"
     },
     {
       "id": "7",
       "name": "محمد جسین لطیفی",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"yes"
     },
     {
       "id": "8",
       "name": "جواد عزتی",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "9",
       "name": "حسن میری",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "10",
       "name": "فرهاد خرمی",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "11",
       "name": "حسین موقوفه ای",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "12",
       "name": "علی منصوری",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"no"
     },
     {
       "id": "13",
       "name": "محمد محمدی",
       "address": "کرمانشاه ازادی",
       "phone": "854-330-3395",
-      "totalPrice": "740.00",
+      "totalPrice": "740.000",
       "deliverTime": 1624227012,
       "orderRegister": 1624227012,
-      "deliveryEndTime": 1624227012
+      "deliveryEndTime": 1624227012,
+      "deliverd":"no"
     },
     {
       "id": "14",
       "name": "اصغر اکبری",
       "address": "کرمانشاه اندیشه",
       "phone": "525-884-5052",
-      "totalPrice": "434.00",
+      "totalPrice": "434.000",
       "deliverTime": 1624226952,
       "orderRegister": 1624226952,
-      "deliveryEndTime": 1624226952
+      "deliveryEndTime": 1624226952,
+      "deliverd":"no"
     },
     {
       "id": "15",
       "name": "علی مرادبیگی",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"no"
     },
     {
       "id": "16",
       "name": "غلام شکربیگی",
       "address": "کرمانشاه ازادی",
       "phone": "854-330-3395",
-      "totalPrice": "740.00",
+      "totalPrice": "740.000",
       "deliverTime": 1624227012,
       "orderRegister": 1624227012,
-      "deliveryEndTime": 1624227012
+      "deliveryEndTime": 1624227012,
+      "deliverd":"no"
     },
     {
       "id": "17",
       "name": "محمد ویسی",
       "address": "کرمانشاه شهرک پزواز",
       "phone": "505.543.2380 x88800",
-      "totalPrice": "318.00",
+      "totalPrice": "318.000",
       "deliverTime": 1624227072,
       "orderRegister": 1624227072,
-      "deliveryEndTime": 1624227072
+      "deliveryEndTime": 1624227072,
+      "deliverd":"no"
     },
     {
       "id": "18",
       "name": "جواد محمودی",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "19",
       "name": "حسن کرمی",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     },
     {
       "id": "20",
       "name": "فرهاد فرهادی",
       "address": "کرمانشاه شریعتی",
       "phone": "936.686.3872",
-      "totalPrice": "668.00",
+      "totalPrice": "668.000",
       "deliverTime": 1624227132,
       "orderRegister": 1624227132,
-      "deliveryEndTime": 1624227132
+      "deliveryEndTime": 1624227132,
+      "deliverd":"no"
     }
   ]
 }

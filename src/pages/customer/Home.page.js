@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { getProducts } from "../../api/JavadShop.api";
 
 class HomePage extends Component {
   render() {
