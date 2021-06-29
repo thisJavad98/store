@@ -1,6 +1,6 @@
 import React from "react";
 import {Component} from "react";
-import { Table , Button } from 'reactstrap';
+import { Table , Button, Pagination, PaginationLink,PaginationItem } from 'reactstrap';
 import { getProducts } from "../../api/JavadShop.api";
 
 class QuantityPanel extends Component{
@@ -89,6 +89,37 @@ class QuantityPanel extends Component{
                         </tr>
                     </tbody> */}
                 </Table>
+                <div className='d-flex justify-content-center mt-4'>
+                    <Pagination aria-label="Page navigation example">
+                        <PaginationItem disabled>
+                            <PaginationLink first href="#" />
+                        </PaginationItem>
+                        <PaginationItem disabled>
+                            <PaginationLink previous href="#" />
+                        </PaginationItem>
+                        <PaginationItem active>
+                            <PaginationLink href="#">
+                            1
+                            </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">
+                            2
+                            </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink href="#">
+                            3
+                            </PaginationLink>
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink next href="#" />
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink last href="#" />
+                        </PaginationItem>
+                        </Pagination>
+                </div>
                 </div>
             </>
         );

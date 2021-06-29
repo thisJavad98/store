@@ -25,7 +25,7 @@ export function getProductByFilter(groupProduct){
 }
 
 export function getProducts(){
-    return httpApi.get('/Products')
+    return httpApi.get(`/Products`)
         .then((response)=>response.data)
         .catch((error)=> console.log(error))
 
