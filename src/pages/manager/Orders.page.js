@@ -8,15 +8,14 @@ import CustomPagination from "../../components/Pagination.component";
 class OrdersPanel extends Component {
   state = {
     orders: [],
-    orderShow:[],
+    orderShow: [],
     currentPage: 1,
-    orderPerPage: 5
+    orderPerPage: 5,
   };
 
-
   async componentDidMount() {
-    this.setState({ orders: await getOrders()});
-    this.setState({orderShow:await this.state.orders.slice(0,5)})
+    this.setState({ orders: await getOrders() });
+    this.setState({ orderShow: await this.state.orders.slice(0, 5) });
     console.log(
       this.state.orders.map((item) => {
         console.log(item.name);
@@ -25,17 +24,21 @@ class OrdersPanel extends Component {
     console.log(this.state.orders);
   }
 
-
   orderFilter = async (event) => {
     if (event.target.value == "yes") {
       this.setState({ orders: await getOrdersByFilter(event.target.value) });
-      this.setState({orderShow:await this.state.orders.slice(0,5),currentPage:1 })
+      this.setState({
+        orderShow: await this.state.orders.slice(0, 5),
+        currentPage: 1,
+      });
     } else {
       this.setState({ orders: await getOrdersByFilter(event.target.value) });
-      this.setState({orderShow:await this.state.orders.slice(0,5),currentPage:1})
+      this.setState({
+        orderShow: await this.state.orders.slice(0, 5),
+        currentPage: 1,
+      });
     }
   };
-
 
   render() {
     return (
@@ -67,12 +70,6 @@ class OrdersPanel extends Component {
               </FormGroup>
             </FormGroup>
           </div>
-          <span>
-            <span className="shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary">
-              ( {this.state.currentPage}/
-              {Math.ceil(this.state.orders.length / 5) } )
-            </span>
-          </span>
           <>
             <h3>مدیریت سفارش ها</h3>
           </>
@@ -106,21 +103,29 @@ class OrdersPanel extends Component {
               })}
             </tbody>
           </Table>
-          <div className="d-flex justify-content-center mt-4">
-            <CustomPagination
-              perPage={this.state.orderPerPage}
-              totalPage={this.state.orders.length}
-              paginate={(pageNumber) =>
-                this.setState({
-                  ...this.state,
-                  currentPage: pageNumber,
-                  orderShow: this.state.orders.slice(
-                    pageNumber * this.state.orderPerPage - 5,
-                    pageNumber * this.state.orderPerPage
-                  ),
-                })
-              }
-            />
+          <div>
+            <div className="d-flex justify-content-center pt-0 mt-0">
+              <CustomPagination
+                perPage={this.state.orderPerPage}
+                totalPage={this.state.orders.length}
+                paginate={(pageNumber) =>
+                  this.setState({
+                    ...this.state,
+                    currentPage: pageNumber,
+                    orderShow: this.state.orders.slice(
+                      pageNumber * this.state.orderPerPage - 5,
+                      pageNumber * this.state.orderPerPage
+                    ),
+                  })
+                }
+              />
+            </div>
+            <div className="d-flex justify-content-center pt-0 mt-0">
+              <span className="shadow bg-warning p-1 ps-3 pe-3 pt-0 mt-0 rounded text-secondary">
+                ( {this.state.currentPage}/
+                {Math.ceil(this.state.orders.length / 5)} )
+              </span>
+            </div>
           </div>
         </div>
       </>

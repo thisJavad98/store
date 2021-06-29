@@ -1,9 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import {
-  Table,
-  Button
-} from "reactstrap";
+import { Table, Button } from "reactstrap";
 import { getProducts } from "../../api/JavadShop.api";
 import CustomPagination from "../../components/Pagination.component";
 
@@ -15,8 +12,11 @@ class QuantityPanel extends Component {
     productPerPage: 5,
   };
   async componentDidMount() {
-    this.setState({ products: await getProducts()});
-    this.setState({...this.state,productShow: this.state.products.slice(0, 5)});
+    this.setState({ products: await getProducts() });
+    this.setState({
+      ...this.state,
+      productShow: this.state.products.slice(0, 5),
+    });
     console.log(
       this.state.products.map((item) => {
         console.log(item.name);
@@ -33,12 +33,6 @@ class QuantityPanel extends Component {
               ذخیره
             </Button>
           </div>
-          <span>
-            <span className="shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary">
-              ( {this.state.currentPage}/
-              {Math.ceil(this.state.products.length / 5) } )
-            </span>
-          </span>
           <>
             <h3>مدیریت موجودی و قیمت ها</h3>
           </>
@@ -64,21 +58,29 @@ class QuantityPanel extends Component {
               })}
             </tbody>
           </Table>
-          <div className="d-flex justify-content-center mt-4">
-            <CustomPagination
-              perPage={this.state.productPerPage}
-              totalPage={this.state.products.length}
-              paginate={(pageNumber) =>
-                this.setState({
-                  ...this.state,
-                  currentPage: pageNumber,
-                  productShow: this.state.products.slice(
-                    pageNumber * this.state.productPerPage - 5,
-                    pageNumber * this.state.productPerPage
-                  ),
-                })
-              }
-            />
+          <div>
+            <div className="d-flex justify-content-center pt-0 mt-0">
+              <CustomPagination
+                perPage={this.state.productPerPage}
+                totalPage={this.state.products.length}
+                paginate={(pageNumber) =>
+                  this.setState({
+                    ...this.state,
+                    currentPage: pageNumber,
+                    productShow: this.state.products.slice(
+                      pageNumber * this.state.productPerPage - 5,
+                      pageNumber * this.state.productPerPage
+                    ),
+                  })
+                }
+              />
+            </div>
+            <div className="d-flex justify-content-center pt-0 mt-0">
+              <span className="shadow bg-warning p-1 ps-3 pe-3 pt-0 mt-0 rounded text-secondary">
+                ( {this.state.currentPage}/
+                {Math.ceil(this.state.products.length / 5)} )
+              </span>
+            </div>
           </div>
         </div>
       </>

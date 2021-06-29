@@ -15,29 +15,37 @@ class ManageProduct extends Component {
     productShow: [],
     groupTitle: [],
     currentPage: 1,
-    productPerPage: 5
+    productPerPage: 4,
   };
 
   //get data
   async componentDidMount() {
-    this.setState({...this.state, products: await getProducts() });
-    this.setState({...this.state, groupTitle: await getGroupProduct() });
-    this.setState({...this.state,productShow: this.state.products.slice(0,5)});
+    this.setState({ ...this.state, products: await getProducts() });
+    this.setState({ ...this.state, groupTitle: await getGroupProduct() });
+    this.setState({
+      ...this.state,
+      productShow: this.state.products.slice(0, 4),
+    });
   }
 
   productFilter = async (event) => {
     console.log(event.target.value.split("/")[1]);
 
-    if (event.target.value === "دسته بندی کالا ها / همه"){
-      this.setState({products:await getProducts()});
-      this.setState({productShow:await this.state.products.slice(0,5),currentPage:1})
-      
-    }else{
-      this.setState({products: await getProductByFilter(event.target.value.split("/")[1])});
-      this.setState({productShow:await this.state.products.slice(0,5),currentPage:1})
+    if (event.target.value === "دسته بندی کالا ها / همه") {
+      this.setState({ products: await getProducts() });
+      this.setState({
+        productShow: await this.state.products.slice(0, 4),
+        currentPage: 1,
+      });
+    } else {
+      this.setState({
+        products: await getProductByFilter(event.target.value.split("/")[1]),
+      });
+      this.setState({
+        productShow: await this.state.products.slice(0, 4),
+        currentPage: 1,
+      });
     }
-
-    
   };
 
   render() {
@@ -47,11 +55,7 @@ class ManageProduct extends Component {
           <div>
             <PeoductManagerModal buttonLabel="افزودن کالا" />
           </div>
-          <span>
-            <span className='shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary'>
-              ( {this.state.currentPage}/{Math.ceil(this.state.products.length/5)} )
-            </span>
-          </span>
+
           <>
             <h3>مدیریت کالا ها</h3>
           </>
@@ -114,14 +118,29 @@ class ManageProduct extends Component {
               })}
             </tbody>
           </Table>
-          <div className="d-flex justify-content-center mt-4">
-            <CustomPagination
-              perPage={this.state.productPerPage}
-              totalPage={this.state.products.length}
-              paginate={(pageNumber)=>this.setState({...this.state, currentPage: pageNumber,
-                productShow: this.state.products.slice(((pageNumber * this.state.productPerPage) - 5),(pageNumber * this.state.productPerPage)) 
-            })}
-            />
+          <div>
+            <div className='d-flex justify-content-center pt-0 mt-0'>
+              <CustomPagination
+                perPage={this.state.productPerPage}
+                totalPage={this.state.products.length}
+                paginate={(pageNumber) =>
+                  this.setState({
+                    ...this.state,
+                    currentPage: pageNumber,
+                    productShow: this.state.products.slice(
+                      pageNumber * this.state.productPerPage - 4,
+                      pageNumber * this.state.productPerPage
+                    ),
+                  })
+                }
+              />
+            </div>
+            <div className='d-flex justify-content-center pt-0 mt-0'>
+              <span className="shadow bg-warning p-1 ps-3 pe-3 pt-0 mt-0 rounded text-secondary">
+                ( {this.state.currentPage}/
+                {Math.ceil(this.state.products.length / 4)} )
+              </span>
+            </div>
           </div>
         </div>
       </>
