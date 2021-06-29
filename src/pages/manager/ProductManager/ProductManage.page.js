@@ -49,7 +49,7 @@ class ManageProduct extends Component {
           </div>
           <span>
             <span className='shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary'>
-              ( {this.state.currentPage}/{Math.floor(this.state.products.length/5)+1} )
+              ( {this.state.currentPage}/{Math.ceil(this.state.products.length/5)} )
             </span>
           </span>
           <>
@@ -119,8 +119,6 @@ class ManageProduct extends Component {
               perPage={this.state.productPerPage}
               totalPage={this.state.products.length}
               paginate={(pageNumber)=>this.setState({...this.state, currentPage: pageNumber,
-                indexOfLastProduct: (pageNumber * this.state.productPerPage),
-                indexOfFirstProduct:((pageNumber * this.state.productPerPage) - 5),
                 productShow: this.state.products.slice(((pageNumber * this.state.productPerPage) - 5),(pageNumber * this.state.productPerPage)) 
             })}
             />

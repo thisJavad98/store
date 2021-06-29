@@ -2,10 +2,7 @@ import React from "react";
 import { Component } from "react";
 import {
   Table,
-  Button,
-  Pagination,
-  PaginationLink,
-  PaginationItem,
+  Button
 } from "reactstrap";
 import { getProducts } from "../../api/JavadShop.api";
 import CustomPagination from "../../components/Pagination.component";
@@ -39,7 +36,7 @@ class QuantityPanel extends Component {
           <span>
             <span className="shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary">
               ( {this.state.currentPage}/
-              {Math.floor(this.state.products.length / 5) + 1} )
+              {Math.ceil(this.state.products.length / 5) } )
             </span>
           </span>
           <>
@@ -75,9 +72,6 @@ class QuantityPanel extends Component {
                 this.setState({
                   ...this.state,
                   currentPage: pageNumber,
-                  indexOfLastProduct: pageNumber * this.state.productPerPage,
-                  indexOfFirstProduct:
-                    pageNumber * this.state.productPerPage - 5,
                   productShow: this.state.products.slice(
                     pageNumber * this.state.productPerPage - 5,
                     pageNumber * this.state.productPerPage
