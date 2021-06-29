@@ -15,16 +15,14 @@ class ManageProduct extends Component {
     productShow: [],
     groupTitle: [],
     currentPage: 1,
-    productPerPage: 5,
-    indexOfLastProduct: 5,
-    indexOfFirstProduct: 0
+    productPerPage: 5
   };
 
   //get data
   async componentDidMount() {
     this.setState({...this.state, products: await getProducts() });
     this.setState({...this.state, groupTitle: await getGroupProduct() });
-    this.setState({...this.state,productShow: this.state.products.slice(this.state.indexOfFirstProduct,this.state.indexOfLastProduct)});
+    this.setState({...this.state,productShow: this.state.products.slice(0,5)});
   }
 
   productFilter = async (event) => {
@@ -32,11 +30,11 @@ class ManageProduct extends Component {
 
     if (event.target.value === "دسته بندی کالا ها / همه"){
       this.setState({products:await getProducts()});
-      this.setState({productShow:await this.state.products.slice(0,5)})
+      this.setState({productShow:await this.state.products.slice(0,5),currentPage:1})
       
     }else{
-      this.setState({products: await getProductByFilter(event.target.value.split("/")[1]),});
-      this.setState({productShow:await this.state.products.slice(0,5)})
+      this.setState({products: await getProductByFilter(event.target.value.split("/")[1])});
+      this.setState({productShow:await this.state.products.slice(0,5),currentPage:1})
     }
 
     
@@ -49,6 +47,11 @@ class ManageProduct extends Component {
           <div>
             <PeoductManagerModal buttonLabel="افزودن کالا" />
           </div>
+          <span>
+            <span className='shadow bg-warning p-1 ps-3 pe-3 rounded text-secondary'>
+              ( {this.state.currentPage}/{Math.floor(this.state.products.length/5)+1} )
+            </span>
+          </span>
           <>
             <h3>مدیریت کالا ها</h3>
           </>
