@@ -12,9 +12,9 @@ const CustomPagination = ({ perPage, totalPage, paginate }) => {
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <a href="#" onClick={() => paginate(number)} className="page-link">
+            <span type='button' href="#" onClick={() => paginate(number)} className="page-link text-primary">
               {number}
-            </a>
+            </span>
           </li>
         ))}
       </ul>

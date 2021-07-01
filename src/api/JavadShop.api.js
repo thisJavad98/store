@@ -24,6 +24,14 @@ export function getProductByFilter(groupProduct){
         
 }
 
+//get product with pagination
+export function getProductWithPagination(pageNumber){
+    return httpApi.get(`/Products?_page=${pageNumber}&_limit=4`)
+        .then((response)=>response.data)
+        .catch((error)=> console.log(error))
+
+}
+
 export function getProducts(){
     return httpApi.get(`/Products`)
         .then((response)=>response.data)

@@ -31,7 +31,7 @@ class Basket extends Component{
                                     <td>۲۰</td>
                                     <td> ۲۰۰.۰۰۰</td>
                                     <td>
-                                        <Link> حذف </Link>
+                                        <span type="button" className="m-2 text-primary"> حذف </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -40,7 +40,7 @@ class Basket extends Component{
                                     <td>۴۰۰</td>
                                     <td> ۲۰۰.۰۰۰</td>
                                     <td>
-                                        <Link> حذف </Link>
+                                        <span type="button" className="m-2 text-primary"> حذف </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -49,7 +49,7 @@ class Basket extends Component{
                                     <td>۴۰</td>
                                     <td> ۲۰۰.۰۰۰</td>
                                     <td>
-                                        <Link> حذف </Link>
+                                        <span type="button" className="m-2 text-primary"> حذف </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,7 +58,7 @@ class Basket extends Component{
                                     <td>۲۰</td>
                                     <td> ۲۰۰.۰۰۰</td>
                                     <td>
-                                        <Link> حذف </Link>
+                                        <span type="button" className="m-2 text-primary"> حذف </span>
                                     </td>
                                 </tr>
                             </tbody>

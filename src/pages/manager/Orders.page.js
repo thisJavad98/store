@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-import { Link } from "react-router-dom";
 import { Table, FormGroup, Label, Input } from "reactstrap";
 import { getOrders, getOrdersByFilter } from "../../api/JavadShop.api";
 import CustomPagination from "../../components/Pagination.component";
@@ -94,9 +93,9 @@ class OrdersPanel extends Component {
                       {item.orderRegister}
                     </td>
                     <td>
-                      <Link className="d-flex justify-content-center">
+                      <span type='button' className="d-flex justify-content-center text-primary">
                         برسی سفارش
-                      </Link>
+                      </span>
                     </td>
                   </tr>
                 );
