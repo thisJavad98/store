@@ -1,14 +1,32 @@
 import React from "react";
 import { Component } from "react";
+import { getProductGroup } from "../../api/JavadShop.api";
+import ProductGroup from "../../components/GroupProduct/GroupProduct.component";
 
 class HomePage extends Component {
+  state = {
+    groupOne: [],
+    groupTwo: [],
+  };
+
+  async componentDidMount() {
+    this.setState({
+      groupOne: await getProductGroup("لبنیات"),
+      groupTwo: await getProductGroup("کالاهای اساسی و خاربار"),
+    });
+  }
+
   render() {
     return (
       <>
-        <div className="vh-100 d-flex justify-content-center align-items-center">
-          <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-            <h1 className="display-3 bg-light p-2">First page of site!!!</h1>
+        <div dir='rtl'>
+          <div className='p-3 m-3'>
+            <ProductGroup data={this.state.groupOne} title={"لبنیات"} />
           </div>
+          <div className='p-3 m-3'>
+            <ProductGroup data={this.state.groupTwo} title={"کالاهای اساسی و خاربار"} />
+          </div>
+          
         </div>
       </>
     );
