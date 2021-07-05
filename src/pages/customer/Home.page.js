@@ -19,14 +19,19 @@ class HomePage extends Component {
   render() {
     return (
       <>
-        <div dir='rtl'>
-          <div className='p-3 m-3'>
-            <ProductGroup data={this.state.groupOne} title={"لبنیات"} />
+        <div dir="rtl">
+          <div className="p-3 m-3">
+            <ProductGroup
+              data={this.state.groupTwo}
+              title={"/products/کالاهای اساسی و خاربار"}
+            />
           </div>
-          <div className='p-3 m-3'>
-            <ProductGroup data={this.state.groupTwo} title={"کالاهای اساسی و خاربار"} />
+          <div className="p-3 m-3">
+            <ProductGroup
+              data={this.state.groupOne}
+              title={"/products/لبنیات"}
+            />
           </div>
-          
         </div>
       </>
     );

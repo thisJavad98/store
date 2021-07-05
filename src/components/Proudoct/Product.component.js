@@ -4,7 +4,7 @@ import { Component } from "react";
 class ProductCard extends Component {
   render() {
     return (
-      <div className="border border-secondary rounded row p-3 pe-0 ">
+      <div className="border  shadow-sm rounded row p-3 pe-0 ">
         <div className="col-4">
           <img
             className="rounded ms-3 "

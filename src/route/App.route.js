@@ -17,6 +17,7 @@ class AppRoute extends Component{
                 <Switch>
                     <Route path='/products'>
                         <MainLayout headerType='customer'/>
+                        {console.log()}
                         <div className='vh-100 d-flex justify-content-center align-items-center'>
                             <div className='d-flex  rounded-circle bg-danger h-75 align-items-center'>
                                 <h1 className="display-3 bg-light p-2">
