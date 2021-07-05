@@ -75,12 +75,12 @@ const HeaderCustomer = (props) => {
                 <>
                     <NavbarBrand href="/" >
                         <span>
-                            <Link className='text-decoration-none text-dark' to="/">
+                            <Link className='text-decoration-none text-dark h3' to="/">
                                 فروشگاه جواد
                             </Link> 
                         </span>
                         <span className='ps-3'>
-                            <Link className='text-decoration-none text-dark' to="/">
+                            <Link className='text-decoration-none text-dark h3' to="/">
                                 <RiShoppingCartLine />
                             </Link>
                         </span>

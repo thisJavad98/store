@@ -4,18 +4,18 @@ import { Component } from "react";
 class ProductCard extends Component {
   render() {
     return (
-      <div className="border  shadow-sm rounded row p-3 pe-0 ">
+      <div className="border shadow rounded row p-3 pe-0 ">
         <div className="col-4">
           <img
-            className="rounded ms-3 "
+            className="rounded ms-2 "
             width="100px"
             height="100px"
             src={this.props.productData.avatar}
           />
         </div>
-        <div className="col">
+        <div className="col me-3">
           <div className="h4 ">{this.props.productData.name}</div>
-          <div className="h5 ">{this.props.productData.price} تومان </div>
+          <div className="h5 text-secondary pt-2">{this.props.productData.price} تومان </div>
         </div>
       </div>
     );
