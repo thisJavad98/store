@@ -22,12 +22,14 @@ class HomePage extends Component {
         <div dir="rtl">
           <div className="p-3 m-3">
             <ProductGroup
+              flagHomePage="true"
               data={this.state.groupTwo}
               title={"/products/کالاهای اساسی و خاربار"}
             />
           </div>
           <div className="p-3 m-3">
             <ProductGroup
+              flagHomePage="true"
               data={this.state.groupOne}
               title={"/products/لبنیات"}
             />

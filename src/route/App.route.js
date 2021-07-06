@@ -13,6 +13,7 @@ import QuantityPanel from "../pages/manager/InventoryManage.page";
 import OrdersPanel from "../pages/manager/Orders.page";
 import HomePage from "../pages/customer/Home.page";
 import ProductsPage from "../pages/customer/Products.page";
+import ProductPage from "../pages/customer/Product.page";
 
 const AppRoute = () => {
   return (
@@ -28,13 +29,7 @@ const AppRoute = () => {
                 </Route>
                 <Route path="/product">
                   <MainLayout headerType="customer" />
-                  <div className="vh-100 d-flex justify-content-center align-items-center">
-                    <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-                      <h1 className="display-3 bg-light p-2">
-                        This is product page!!!
-                      </h1>
-                    </div>
-                  </div>
+                  <ProductPage productName={location.pathname.split("/")[2]}/>
                 </Route>
                 <Route path="/basket">
                   <MainLayout headerType="customer" />

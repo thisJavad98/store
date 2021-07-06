@@ -36,8 +36,15 @@ export function getGroupProduct(){
         .then((response=>response.data))
         .catch((error)=>console.log(error))
 }
+
 export function getProductGroup(group){
     return httpApi.get(`/Products?groupTitle=${group}`)
+        .then((response)=>response.data)
+        .catch((error)=>console.log(error))
+}
+
+export function getProductData(productName){
+    return httpApi.get(`/Products?name=${productName}`)
         .then((response)=>response.data)
         .catch((error)=>console.log(error))
 }

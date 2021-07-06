@@ -340,6 +340,28 @@
       "date": "October 13, 2021 11:13:00",
       "discription": "perspiciatis aspernatur et",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "32",
+      "name": "روغن بهار",
+      "group": "روغن",
+      "groupTitle": "کالاهای اساسی و خاربار",
+      "price": 15000,
+      "inventory": 93,
+      "date": "October 13, 2021 11:13:00",
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
+    },
+    {
+      "id": "33",
+      "name": "روغن اویلا",
+      "group": "روغن",
+      "groupTitle": "کالاهای اساسی و خاربار",
+      "price": 15000,
+      "inventory": 93,
+      "date": "October 13, 2021 11:13:00",
+      "discription": "perspiciatis aspernatur et",
+      "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
     }
   ],
   "groupProducts": [
@@ -353,7 +375,7 @@
       "id": "2",
       "icon": "http://placeimg.com/640/480/food",
       "title": "دوغ",
-      "groupTitle": "لبنیات "
+      "groupTitle": "لبنیات"
     },
     {
       "id": "3",
@@ -365,13 +387,13 @@
       "id": "4",
       "icon": "http://placeimg.com/640/480/nightlife",
       "title": "روغن",
-      "groupTitle": "کالای اساسی و خار و بار"
+      "groupTitle": "کالاهای اساسی و خاربار"
     },
     {
       "id": "5",
       "icon": "http://placeimg.com/640/480/food",
       "title": "برنج",
-      "groupTitle": "کالای اساسی و خار و بار"
+      "groupTitle": "کالاهای اساسی و خاربار"
     }
   ],
   "Order": [
