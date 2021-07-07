@@ -1,8 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { Table, FormGroup, Label, Input } from "reactstrap";
-import { getOrders, getOrdersByFilter } from "../../api/JavadShop.api";
-import CustomPagination from "../../components/Pagination.component";
+import { getOrders, getOrdersByFilter } from "../../../api/JavadShop.api";
+import CustomPagination from "../../../components/Pagination.component";
+import OrdersManagerModal from "../OrdersManager/OrdersManager.modal";
 
 class OrdersPanel extends Component {
   state = {
@@ -93,7 +94,17 @@ class OrdersPanel extends Component {
                         type="button"
                         className="d-flex justify-content-center text-primary"
                       >
-                        برسی سفارش
+                        <OrdersManagerModal
+                          buttonLabel="برسی سفارش"
+                          name={item.name}
+                          address={item.address}
+                          phone={item.phone}
+                          deliverTime={item.deliverTime}
+                          orderRegister={item.orderRegister}
+                          deliveryEndTime={item.deliveryEndTime}
+                          basket={item.basket}
+                          deliverd={item.deliverd}
+                        />
                       </span>
                     </td>
                   </tr>

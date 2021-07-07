@@ -52,7 +52,7 @@ class ManageProduct extends Component {
     return (
       <>
         <div className="d-flex justify-content-between m-5 ">
-          <div>
+          <div className="bg-success p-2 text-light rounded">
             <PeoductManagerModal buttonLabel="افزودن کالا" />
           </div>
 
@@ -107,8 +107,15 @@ class ManageProduct extends Component {
                       {item.groupTitle} / {item.group}
                     </td>
                     <td>
-                      <span type="button" className="m-2 text-primary">
-                        ویرایش
+                      <span className="m-2 text-primary">
+                        {console.log(item)}
+                        <PeoductManagerModal
+                          buttonLabel="ویرایش"
+                          name={item.name}
+                          groupTitle={item.groupTitle}
+                          discription={item.discription}
+                          avatar={item.avatar}
+                        />
                       </span>
                       <span type="button" className="m-2 text-primary">
                         حذف

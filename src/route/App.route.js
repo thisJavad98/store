@@ -6,7 +6,7 @@ import LoginPage from "../pages/manager/Login.page";
 import ManageProduct from "../pages/manager/ProductManager/ProductManage.page";
 import Basket from "../pages/customer/Basket.page";
 import QuantityPanel from "../pages/manager/InventoryManage.page";
-import OrdersPanel from "../pages/manager/Orders.page";
+import OrdersPanel from "../pages/manager/OrdersManager/OrdersManager.page";
 import HomePage from "../pages/customer/Home.page";
 import ProductsPage from "../pages/customer/Products.page";
 import ProductPage from "../pages/customer/Product.page";
