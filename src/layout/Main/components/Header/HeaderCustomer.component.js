@@ -40,8 +40,8 @@ const HeaderCustomer = (props) => {
         </>
         <>
           <NavbarBrand href="/">
-            <span className='h4'>فروشگاه جواد</span>
-            <span className="ps-3 h4">
+            <span className='h5'>فروشگاه جواد</span>
+            <span className="ps-3 h5">
               <RiShoppingCartLine />
             </span>
           </NavbarBrand>

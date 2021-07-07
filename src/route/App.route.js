@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PageNotFoundl from "../components/PageNotFound.component";
 import MainLayout from "../layout/Main/Main.layout";
 import LoginPage from "../pages/manager/Login.page";
@@ -14,6 +10,9 @@ import OrdersPanel from "../pages/manager/Orders.page";
 import HomePage from "../pages/customer/Home.page";
 import ProductsPage from "../pages/customer/Products.page";
 import ProductPage from "../pages/customer/Product.page";
+import CheckOut from "../pages/customer/CheckOut.page";
+import PaymentPage from "../pages/customer/Payment.page";
+import ResultPayment from "../pages/customer/PayResult.page";
 
 const AppRoute = () => {
   return (
@@ -29,7 +28,7 @@ const AppRoute = () => {
                 </Route>
                 <Route path="/product">
                   <MainLayout headerType="customer" />
-                  <ProductPage productName={location.pathname.split("/")[2]}/>
+                  <ProductPage productName={location.pathname.split("/")[2]} />
                 </Route>
                 <Route path="/basket">
                   <MainLayout headerType="customer" />
@@ -37,40 +36,16 @@ const AppRoute = () => {
                 </Route>
                 <Route path="/checkout">
                   <MainLayout headerType="customer" />
-                  <div className="vh-100 d-flex justify-content-center align-items-center">
-                    <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-                      <h1 className="display-3 bg-light p-2">
-                        This is check out page!!!
-                      </h1>
-                    </div>
-                  </div>
+                  <CheckOut />
                 </Route>
                 <Route path="/payment">
-                  <div className="vh-100 d-flex justify-content-center align-items-center">
-                    <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-                      <h1 className="display-3 bg-light p-2">
-                        This is payment page!!!
-                      </h1>
-                    </div>
-                  </div>
+                  <PaymentPage />
                 </Route>
                 <Route path="/payment-result-success">
-                  <div className="vh-100 d-flex justify-content-center align-items-center">
-                    <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-                      <h1 className="display-3 bg-light p-2">
-                        This is success payment page!!!
-                      </h1>
-                    </div>
-                  </div>
+                  <ResultPayment />
                 </Route>
                 <Route path="/payment-result-fail">
-                  <div className="vh-100 d-flex justify-content-center align-items-center">
-                    <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-                      <h1 className="display-3 bg-light p-2">
-                        This is fail payment page!!!
-                      </h1>
-                    </div>
-                  </div>
+                  <ResultPayment />
                 </Route>
                 <Route path="/panel-login">
                   <LoginPage />
@@ -98,90 +73,6 @@ const AppRoute = () => {
             );
           }}
         />
-
-        {/* <Route path={`/products`}>
-          <MainLayout headerType="customer" />
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is products page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/product">
-          <MainLayout headerType="customer" />
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is product page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/basket">
-          <MainLayout headerType="customer" />
-          <Basket />
-        </Route>
-        <Route path="/checkout">
-          <MainLayout headerType="customer" />
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is check out page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/payment">
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is payment page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/payment-result-success">
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is success payment page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/payment-result-fail">
-          <div className="vh-100 d-flex justify-content-center align-items-center">
-            <div className="d-flex  rounded-circle bg-danger h-75 align-items-center">
-              <h1 className="display-3 bg-light p-2">
-                This is fail payment page!!!
-              </h1>
-            </div>
-          </div>
-        </Route>
-        <Route path="/panel-login">
-          <LoginPage />
-        </Route>
-        <Route path="/panel-product">
-          <MainLayout headerType="panelProduct" />
-          <ManageProduct />
-        </Route>
-        <Route path="/panel-quantity">
-          <MainLayout headerType="panelQuntity" />
-          <QuantityPanel />
-        </Route>
-        <Route path="/panel-orders">
-          <MainLayout headerType="panelOrders" />
-          <OrdersPanel />
-        </Route>
-        <Route path="/" exact>
-          <MainLayout headerType="customer" />
-          <HomePage />
-        </Route>
-        <Route path="/*">
-          <PageNotFoundl />
-        </Route> */}
       </Switch>
     </BrowserRouter>
   );
