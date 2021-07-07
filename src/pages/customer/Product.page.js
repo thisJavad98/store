@@ -8,6 +8,7 @@ class ProductPage extends Component {
   state = {
     productData: {},
     data: {},
+    numberOfOrder: 1,
   };
   async componentDidMount() {
     this.setState({
@@ -15,12 +16,14 @@ class ProductPage extends Component {
     });
     this.setState({ data: await this.state.productData[0] });
   }
+
   render() {
     return (
       <div dir="rtl" className="p-5 m-3">
         <div className="row">
           <div className="col-xl-3">
             <img
+              alt={this.state.data.name}
               className="rounded ms-2"
               width="310px"
               height="310px"
@@ -42,11 +45,24 @@ class ProductPage extends Component {
               <span>{this.state.data.group}</span>
             </div>
             <div className="mt-3 h2">
-              <span>{this.state.data.price} تومان</span>
+              <span>قیمت : {this.state.data.price} تومان</span>
             </div>
             <div className="mt-5">
               <form>
-                <input type="" className="col-1 p-3 ms-5"></input>
+                <span className=" ms-5 ">
+                  <Button color="primary">+</Button>
+                  <input
+                    style={{
+                      width: "35px",
+                      textAlign: "center",
+                      border: "none",
+                    }}
+                    value={this.state.numberOfOrder}
+                    readOnly
+                  ></input>
+                  <Button color="primary">-</Button>
+                </span>
+
                 <Button color="success" className="p-3" type="submit">
                   <span className="h5">
                     افزدون به سبد خرید <FaPlusCircle />
@@ -56,8 +72,10 @@ class ProductPage extends Component {
             </div>
           </div>
           <div className="p-5 h3">
-            <div className='h2 '>مشخصات کالا :</div>
-            <div className='h4 bg-warning h-100 rounded p-3 text-light mt-2 me-4 '>{this.state.data.discription}</div>
+            <div className="h2 ">مشخصات کالا :</div>
+            <div className="h4 bg-warning h-100 rounded p-3 text-light mt-5 me-4 ">
+              {this.state.data.discription}
+            </div>
           </div>
         </div>
       </div>

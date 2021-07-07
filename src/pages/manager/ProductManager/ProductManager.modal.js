@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, FormGroup, Label, Input} from 'reactstrap';
 
 const PeoductManagerModal = (props) => {
@@ -13,7 +12,7 @@ const PeoductManagerModal = (props) => {
   
   return (
     <>
-      <Link className='text-decoration-none bg-success text-light p-3 rounded'  onClick={toggle}>{buttonLabel}</Link>
+      <Button color='success' onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className} dir='rtl'>
         <ModalHeader toggle={toggle}>افزودن / ویرایش کالا</ModalHeader>
         <ModalBody>

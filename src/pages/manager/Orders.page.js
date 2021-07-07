@@ -15,16 +15,12 @@ class OrdersPanel extends Component {
   async componentDidMount() {
     this.setState({ orders: await getOrders() });
     this.setState({ orderShow: await this.state.orders.slice(0, 5) });
-    console.log(
-      this.state.orders.map((item) => {
-        console.log(item.name);
-      })
-    );
+    console.log(this.state.orders.map((item) => console.log(item.name)));
     console.log(this.state.orders);
   }
 
   orderFilter = async (event) => {
-    if (event.target.value == "yes") {
+    if (event.target.value === "yes") {
       this.setState({ orders: await getOrdersByFilter(event.target.value) });
       this.setState({
         orderShow: await this.state.orders.slice(0, 5),
@@ -93,7 +89,10 @@ class OrdersPanel extends Component {
                       {item.orderRegister}
                     </td>
                     <td>
-                      <span type='button' className="d-flex justify-content-center text-primary">
+                      <span
+                        type="button"
+                        className="d-flex justify-content-center text-primary"
+                      >
                         برسی سفارش
                       </span>
                     </td>

@@ -17,11 +17,7 @@ class QuantityPanel extends Component {
       ...this.state,
       productShow: this.state.products.slice(0, 5),
     });
-    console.log(
-      this.state.products.map((item) => {
-        console.log(item.name);
-      })
-    );
+    console.log(this.state.products.map((item) => console.log(item.name)));
     console.log(this.state.products);
   }
   render() {

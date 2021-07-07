@@ -95,6 +95,7 @@ class ManageProduct extends Component {
                   <tr key={item.id}>
                     <th className="d-flex justify-content-center">
                       <img
+                        alt={item.name}
                         className="rounded-circle"
                         width="80px"
                         height="80px"
@@ -119,7 +120,7 @@ class ManageProduct extends Component {
             </tbody>
           </Table>
           <div>
-            <div className='d-flex justify-content-center pt-0 mt-0'>
+            <div className="d-flex justify-content-center pt-0 mt-0">
               <CustomPagination
                 perPage={this.state.productPerPage}
                 totalPage={this.state.products.length}
@@ -135,7 +136,7 @@ class ManageProduct extends Component {
                 }
               />
             </div>
-            <div className='d-flex justify-content-center pt-0 mt-0'>
+            <div className="d-flex justify-content-center pt-0 mt-0">
               <span className="shadow bg-warning p-1 ps-3 pe-3 pt-0 mt-0 rounded text-secondary">
                 ( {this.state.currentPage}/
                 {Math.ceil(this.state.products.length / 4)} )
