@@ -7,6 +7,7 @@ import {
   getGroupProduct,
   getProductByFilter,
   getProducts,
+  deleteProduct,
 } from "../../../api/JavadShop.api";
 
 class ManageProduct extends Component {
@@ -16,6 +17,7 @@ class ManageProduct extends Component {
     groupTitle: [],
     currentPage: 1,
     productPerPage: 4,
+
   };
 
   //get data
@@ -47,7 +49,10 @@ class ManageProduct extends Component {
       });
     }
   };
-
+  deleteProduct = async (productId) => {
+    alert(`کالای  ${productId.name}  با موفقیت حذف شد !!!`);
+    await deleteProduct(productId.id);
+  };
   render() {
     return (
       <>
@@ -90,40 +95,44 @@ class ManageProduct extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.productShow.map((item) => {
-                return (
-                  <tr key={item.id}>
-                    <th className="d-flex justify-content-center">
-                      <img
-                        alt={item.name}
-                        className="rounded-circle"
-                        width="80px"
-                        height="80px"
-                        src={item.avatar}
+              {this.state.productShow.map((item) => (
+                <tr key={item.id}>
+                  <th className="d-flex justify-content-center">
+                    <img
+                      alt={item.name}
+                      className="rounded-circle"
+                      width="80px"
+                      height="80px"
+                      src={item.avatar}
+                    />
+                  </th>
+                  <td>{item.name}</td>
+                  <td>
+                    {item.groupTitle} / {item.group}
+                  </td>
+                  <td>
+                    <span className="m-2 text-primary">
+                      <PeoductManagerModal
+                        buttonLabel="ویرایش"
+                        lenghtOfProducts={this.state.products.length}
+                        id={item.id}
+                        name={item.name}
+                        group={item.group}
+                        groupTitle={item.groupTitle}
+                        discription={item.discription}
+                        avatar={item.avatar}
                       />
-                    </th>
-                    <td>{item.name}</td>
-                    <td>
-                      {item.groupTitle} / {item.group}
-                    </td>
-                    <td>
-                      <span className="m-2 text-primary">
-                        {console.log(item)}
-                        <PeoductManagerModal
-                          buttonLabel="ویرایش"
-                          name={item.name}
-                          groupTitle={item.groupTitle}
-                          discription={item.discription}
-                          avatar={item.avatar}
-                        />
-                      </span>
-                      <span type="button" className="m-2 text-primary">
-                        حذف
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
+                    </span>
+                    <a
+                      className="m-2 text-primary text-decoration-none"
+                      href="http://localhost:3000/panel-product"
+                      onClick={this.deleteProduct.bind(this, item)}
+                    >
+                      حذف
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </Table>
           <div>

@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "node server"
+    "backend": "nodemon server"
   },
   "eslintConfig": {
     "extends": [

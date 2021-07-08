@@ -10,6 +10,7 @@ class QuantityPanel extends Component {
     productShow: [],
     currentPage: 1,
     productPerPage: 5,
+    changeItems: [],
   };
   async componentDidMount() {
     this.setState({ products: await getProducts() });
@@ -17,9 +18,15 @@ class QuantityPanel extends Component {
       ...this.state,
       productShow: this.state.products.slice(0, 5),
     });
-    console.log(this.state.products.map((item) => console.log(item.name)));
-    console.log(this.state.products);
   }
+
+  priceHandelChange = (item) => {
+    console.log(item.id, this.event.target.value);
+  };
+  inventoryHandelChange = (item) => {
+    console.log(item.id, this.event.target.value);
+  };
+
   render() {
     return (
       <>
@@ -47,8 +54,20 @@ class QuantityPanel extends Component {
                 return (
                   <tr key={item.id}>
                     <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>{item.inventory}</td>
+                    <td>
+                      <input
+                        className="border-0 w-100 bg-transparent"
+                        defaultValue={item.price}
+                        onChange={this.priceHandelChange.bind(this, item)}
+                      ></input>
+                    </td>
+                    <td>
+                      <input
+                        className="border-0 w-100 bg-transparent"
+                        defaultValue={item.inventory}
+                        onChange={this.inventoryHandelChange.bind(this, item)}
+                      ></input>
+                    </td>
                   </tr>
                 );
               })}

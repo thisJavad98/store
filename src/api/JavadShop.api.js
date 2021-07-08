@@ -48,3 +48,20 @@ export function getProductData(productName){
         .then((response)=>response.data)
         .catch((error)=>console.log(error))
 }
+
+export function deleteProduct(id){
+    return httpApi.delete(`/Products/${id}`)
+        .then((response)=>console.log(response.data))
+        .catch((error)=>console.log(error))
+}
+
+export function editeProduct(id , data){
+    return httpApi.patch(`/Products/${id}`,data)
+        .then((response)=>console.log(response.data))
+        .catch((error)=>console.log(error))
+}
+export function postProduct(data){
+    return httpApi.post(`/Products`, data)
+        .then((response)=>console.log(response.data))
+        .catch((error)=>console.log(error))
+}
