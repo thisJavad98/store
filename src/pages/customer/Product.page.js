@@ -50,19 +50,14 @@ class ProductPage extends Component {
             <div className="mt-5">
               <form>
                 <span className=" ms-5 ">
-                  <Button color="primary">+</Button>
                   <input
-                    style={{
-                      width: "35px",
-                      textAlign: "center",
-                      border: "none",
-                    }}
-                    value={this.state.numberOfOrder}
-                    readOnly
+                    type="number"
+                    defaultValue="1"
+                    className="shadow-sm p-2 border-0 bg-secondary text-light rounded"
+                    min="1"
+                    max={`${this.state.data.inventory}`}
                   ></input>
-                  <Button color="primary">-</Button>
                 </span>
-
                 <Button color="success" className="p-3" type="submit">
                   <span className="h5">
                     افزدون به سبد خرید <FaPlusCircle />
