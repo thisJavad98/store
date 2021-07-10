@@ -9,7 +9,11 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import { editeProduct, postProduct } from "../../../api/JavadShop.api";
+import {
+  editeProduct,
+  postProduct,
+  uploadImage,
+} from "../../../api/JavadShop.api";
 
 const PeoductManagerModal = (props) => {
   const {
@@ -20,19 +24,18 @@ const PeoductManagerModal = (props) => {
     group,
     discription,
     avatar,
-    lenghtOfProducts,
-    id
+    id,
   } = props;
 
   const [modal, setModal] = useState(false);
   const [state, setState] = useState({
-    id:id,
+    id: id,
     name: name,
     groupTitle: groupTitle,
     group: group,
     discription: discription,
-    avatar: avatar,
-    index: lenghtOfProducts,
+    avatar: { props: avatar, newUlr: "" },
+    uploadImage: "",
   });
 
   const toggle = () => setModal(!modal);
@@ -49,21 +52,34 @@ const PeoductManagerModal = (props) => {
   function groupHandelChange(evt) {
     setState({ ...state, group: evt.target.value });
   }
+  async function avatarHandelChange(evt) {
+    setState({
+      ...state,
+      avatar: { ...state.avatar, props: evt.target.files[0] },
+    });
+  }
 
-  function updateProduct(event) {
-    const updated ={
+  async function updateProduct() {
+    /* const fd = new FormData();
+    fd.append("image", state.avatar.props, state.avatar.props.name);
+    const filename = await uploadImage(fd).filename;
+    setState({uploadImage:filename}) */
+    await editeProduct(state.id, {
       name: state.name,
       group: state.group,
       groupTitle: state.groupTitle,
       discription: state.discription,
-    }
+      /* avatar: "http://localhost:5000/files/" +  state.uploadImage, */
+    });
     setModal(!modal);
-    editeProduct(state.id , updated)
   }
-  function addProduct(event) {
-    console.log(state);
 
-    const product = {
+  async function addProduct() {
+    /* const fd = new FormData();
+    fd.append("image", state.avatar.props, state.avatar.props.name);
+    const filename = await uploadImage(fd).filename;
+    setState({uploadImage:filename}) */
+    await postProduct({
       id: state.index + 1,
       name: state.name,
       group: state.group,
@@ -72,9 +88,8 @@ const PeoductManagerModal = (props) => {
       inventory: "",
       date: "",
       discription: state.discription,
-      avatar: "",
-    };
-    postProduct(product);
+      /* avatar: "http://localhost:5000/files/" + state.uploadImage, */
+    });
     setModal(!modal);
   }
   return (
@@ -94,7 +109,7 @@ const PeoductManagerModal = (props) => {
                 className="d-flex rounded-circle"
                 width="80px"
                 height="80px"
-                src={state.avatar}
+                src={state.avatar.props}
               />
             </div>
           ) : (
@@ -102,32 +117,33 @@ const PeoductManagerModal = (props) => {
           )}
           <Form dir="rtl" onSubmit={avatar ? updateProduct : addProduct}>
             <FormGroup className="pb-3">
-              <Label for="uploadImg">تصویر کالا :</Label>
+              <Label for="image">تصویر کالا :</Label>
               <Input
                 className="d-flex w-100  border rounded"
                 type="file"
-                id="uploadImg"
+                id="image"
                 name="customFile"
                 accept="image/*"
+                onChange={avatarHandelChange}
               />
             </FormGroup>
             <FormGroup className="pb-3">
-              <Label for="nameProduct">نام کالا :</Label>
+              <Label for="name">نام کالا :</Label>
               <br />
               <Input
                 type="text"
-                name="nameProduct"
-                id="nameProduct"
+                name="name"
+                id="name"
                 value={state.name}
                 onChange={nameHandelChange}
               />
             </FormGroup>
             <FormGroup className="pb-3">
-              <Label for="groupLabel">دسته بندی :</Label>
+              <Label for="groupTitle">دسته بندی :</Label>
               <Input
                 type="select"
-                name="select"
-                id="groupLabel"
+                name="groupTitle"
+                id="groupTitle"
                 value={state.groupTitle}
                 onChange={groupTitleHandelChange}
               >
@@ -137,11 +153,11 @@ const PeoductManagerModal = (props) => {
               </Input>
             </FormGroup>
             <FormGroup className="pb-3">
-              <Label for="groupLabel">گروه کالایی :</Label>
+              <Label for="group">گروه کالایی :</Label>
               <Input
                 type="text"
-                name="select"
-                id="groupLabel"
+                name="group"
+                id="group"
                 value={state.group}
                 onChange={groupHandelChange}
               ></Input>
@@ -150,7 +166,7 @@ const PeoductManagerModal = (props) => {
               <Label for="description">توضیحات :</Label>
               <Input
                 type="textarea"
-                name="text"
+                name="description"
                 id="description"
                 value={state.discription}
                 onChange={discriptionHandelChange}
@@ -158,12 +174,7 @@ const PeoductManagerModal = (props) => {
             </FormGroup>
             <div className="d-flex justify-content-center m-4">
               <a href="http://localhost:3000/panel-product">
-                <Button
-                  type="submit"
-                  className="ps-5 pe-5"
-                  color="success"
-                  
-                >
+                <Button type="submit" className="ps-5 pe-5" color="success">
                   {avatar ? <> ویرایش </> : <> افزدون </>}
                 </Button>
               </a>

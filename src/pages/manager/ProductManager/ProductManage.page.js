@@ -17,7 +17,6 @@ class ManageProduct extends Component {
     groupTitle: [],
     currentPage: 1,
     productPerPage: 4,
-
   };
 
   //get data
@@ -58,7 +57,15 @@ class ManageProduct extends Component {
       <>
         <div className="d-flex justify-content-between m-5 ">
           <div className="bg-success p-2 text-light rounded">
-            <PeoductManagerModal buttonLabel="افزودن کالا" />
+            <PeoductManagerModal
+              id={""}
+              name={""}
+              group={""}
+              groupTitle={""}
+              discription={""}
+              avatar={""}
+              buttonLabel="افزودن کالا"
+            />
           </div>
 
           <>
@@ -114,7 +121,6 @@ class ManageProduct extends Component {
                     <span className="m-2 text-primary">
                       <PeoductManagerModal
                         buttonLabel="ویرایش"
-                        lenghtOfProducts={this.state.products.length}
                         id={item.id}
                         name={item.name}
                         group={item.group}

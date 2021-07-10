@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Table, Button } from "reactstrap";
-import { getProducts } from "../../api/JavadShop.api";
+import { getProducts, editeInvntory } from "../../api/JavadShop.api";
 import CustomPagination from "../../components/Pagination.component";
 
 class QuantityPanel extends Component {
@@ -11,30 +11,51 @@ class QuantityPanel extends Component {
     currentPage: 1,
     productPerPage: 5,
     changeItems: [],
+    flag: false,
   };
   async componentDidMount() {
-    this.setState({ products: await getProducts() });
+    this.setState({ products: await getProducts(), changeItems: [] });
     this.setState({
       ...this.state,
       productShow: this.state.products.slice(0, 5),
     });
   }
 
-  priceHandelChange = (item) => {
-    console.log(item.id, this.event.target.value);
-  };
-  inventoryHandelChange = (item) => {
-    console.log(item.id, this.event.target.value);
-  };
+  onChangeHandel(flag, newValue, index, changeType) {
+    console.log(flag);
+    this.setState({
+      changeItems: [
+        ...this.state.changeItems,
+        { index: index, changeType: changeType, newValue: newValue },
+      ],
+    });
+    console.log(newValue, index, changeType);
+  }
 
+  updateTable() {
+    this.state.changeItems.map(
+      async (item) =>
+        await editeInvntory(item.index, { [item.changeType]: item.newValue })
+    );
+  }
+  onSkipChange(e) {
+    if (e.keyCode === 27) console.log("areeeeeeeee");
+    else console.log("ridiiii");
+  }
   render() {
     return (
       <>
-        <div className="d-flex justify-content-between m-5 ">
+        <div className={"d-flex justify-content-between m-5 "}>
           <div>
-            <Button color="success" className="ps-4 pe-4 p-2">
-              ذخیره
-            </Button>
+            <a href="http://localhost:3000/panel-quantity">
+              <Button
+                onClick={() => this.updateTable()}
+                color="success"
+                className="ps-4 pe-4 p-2"
+              >
+                ذخیره
+              </Button>
+            </a>
           </div>
           <>
             <h3>مدیریت موجودی و قیمت ها</h3>
@@ -50,22 +71,40 @@ class QuantityPanel extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.productShow.map((item) => {
+              {this.state.productShow.map((item, index) => {
                 return (
                   <tr key={item.id}>
                     <td>{item.name}</td>
                     <td>
                       <input
+                        type="number"
                         className="border-0 w-100 bg-transparent"
                         defaultValue={item.price}
-                        onChange={this.priceHandelChange.bind(this, item)}
+                        name={"price"}
+                        onKeyPress={(e) => this.onSkipChange(e)}
+                        onChange={(e) =>
+                          this.onChangeHandel(
+                            e.target.value,
+                            item.id,
+                            e.target.name
+                          )
+                        }
                       ></input>
                     </td>
                     <td>
                       <input
+                        type="number"
                         className="border-0 w-100 bg-transparent"
                         defaultValue={item.inventory}
-                        onChange={this.inventoryHandelChange.bind(this, item)}
+                        name={"inventory"}
+                        onKeyPress={(e) => this.onSkipChange(e)}
+                        onChange={(e) =>
+                          this.onChangeHandel(
+                            e.target.value,
+                            item.id,
+                            e.target.name
+                          )
+                        }
                       ></input>
                     </td>
                   </tr>

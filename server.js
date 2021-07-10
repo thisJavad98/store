@@ -37,17 +37,19 @@ server.get('/files/:file_id', (req, res, next) => {
 server.use(jsonServer.bodyParser)
 
 
-// For all non-json POST requests (object creation endpoints using an image file)
+// For all non-json POST and PATCH requests (create and edit endpoints using an image file)
 // 1- Upload the file inside the `image` field
 // 2- (do it in next middleware)
 const imageFieldUploadMiddleware = upload.single('image')
+
 server.use((req, res, next) => {
-  if (req.method === 'POST' && req.headers['content-type'] != 'application/json') {
+  if ((req.method === 'POST' ||  req.method === 'PATCH') && req.headers['content-type'] != 'application/json') {
     imageFieldUploadMiddleware(req, res, next)
   } else {
     next()
   }
 })
+
 
 // If previous middle-ware worked, continue to next step
 // 1- (previous middle-ware already did first step)

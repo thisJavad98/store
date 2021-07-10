@@ -5,8 +5,8 @@
       "name": "شیر پگاه",
       "group": "شیر",
       "groupTitle": "لبنیات",
-      "price": 12000,
-      "inventory": 98,
+      "price": "1400",
+      "inventory": "105",
       "date": "October 13, 2021 11:13:00",
       "discription": "illo consequatur praesentium",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
@@ -17,7 +17,7 @@
       "group": "شیر",
       "groupTitle": "لبنیات",
       "price": 6000,
-      "inventory": 93,
+      "inventory": "95",
       "date": "October 13, 2021 11:13:00",
       "discription": "perspiciatis aspernatur et",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
@@ -325,7 +325,7 @@
       "group": "برنج",
       "groupTitle": "کالاهای اساسی و خاروبار",
       "price": 198000,
-      "inventory": 9,
+      "inventory": "10",
       "date": "October 13, 2021 11:13:00",
       "discription": "illo consequatur praesentium",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
@@ -336,7 +336,7 @@
       "group": "برنج",
       "groupTitle": "کالاهای اساسی و خاربار",
       "price": 15000,
-      "inventory": 93,
+      "inventory": "94",
       "date": "October 13, 2021 11:13:00",
       "discription": "perspiciatis aspernatur et",
       "avatar": "https://cdn.fakercloud.com/avatars/GavicoInd_128.jpg"
