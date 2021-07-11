@@ -88,3 +88,10 @@ export function editeInvntory(id, data) {
     .then((response) => console.log(response.data))
     .catch((error) => console.log(error));
 }
+
+export function doneTheOrder(id, data) {
+  return httpApi
+    .patch(`/Order/${id}`, data)
+    .then((response) => console.log(response.data))
+    .catch((error) => console.log(error));
+}

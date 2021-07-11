@@ -7,23 +7,19 @@ import {
   ModalFooter,
   Table,
 } from "reactstrap";
+import { doneTheOrder } from "../../../api/JavadShop.api";
 
 const OrdersManagerModal = (props) => {
-  const {
-    buttonLabel,
-    name,
-    address,
-    phone,
-    deliverTime,
-    orderRegister,
-    deliverd,
-    deliveryEndTime,
-    basket,
-  } = props;
+  const { buttonLabel, data } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  const orderIsDone = () => {
+    doneTheOrder(data.id, { deliverd: "yes" });
+    setModal(!modal);
+  };
 
   return (
     <>
@@ -35,23 +31,23 @@ const OrdersManagerModal = (props) => {
         <ModalBody className="p-3">
           <div className="p-4 pb-0">
             <span className="h5">نام مشتری :</span>
-            <span className="h6 me-4">{name}</span>
+            <span className="h6 me-4">{data.name}</span>
           </div>
           <div className="p-4 pb-0">
             <span className="h5">آدرس :</span>
-            <span className="h6 me-4">{address}</span>
+            <span className="h6 me-4">{data.address}</span>
           </div>
           <div className="p-4 pb-0">
             <span className="h5">تلفن :</span>
-            <span className="h6 me-4">{phone}</span>
+            <span className="h6 me-4">{data.phone}</span>
           </div>
           <div className="p-4 pb-0">
             <span className="h5">زمان تحویل :</span>
-            <span className="h6 me-4">{deliverTime}</span>
+            <span className="h6 me-4">{data.deliverTime}</span>
           </div>
           <div className="p-4 pb-0">
             <span className="h5">زمان سفارش :</span>
-            <span className="h6 me-4">{orderRegister}</span>
+            <span className="h6 me-4">{data.orderRegister}</span>
           </div>
           <div className="d-flex justify-content-center">
             <Table bordered striped dir="rtl" className="m-3">
@@ -63,7 +59,7 @@ const OrdersManagerModal = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {basket.map((item, index) => {
+                {data.basket.map((item, index) => {
                   return (
                     <tr key={index}>
                       <td>
@@ -83,16 +79,22 @@ const OrdersManagerModal = (props) => {
             </Table>
           </div>
         </ModalBody>
-        {deliverd === "no" ? (
+        {data.deliverd === "no" ? (
           <ModalFooter className="d-flex justify-content-center">
-            <Button className="ps-5 pe-5" color="success" onClick={toggle}>
-              تحویل شد
-            </Button>
+            <a href="http://localhost:3000/panel-orders">
+              <Button
+                className="ps-5 pe-5"
+                color="success"
+                onClick={orderIsDone}
+              >
+                تحویل شد
+              </Button>
+            </a>
           </ModalFooter>
         ) : (
           <div className="d-flex justify-content-center align-items-center p-2 m-2 text-danger border rounded">
             <span className="h5">زمان تحویل :</span>
-            <span className="me-3 h6">{deliveryEndTime}</span>
+            <span className="me-3 h6">{data.deliveryEndTime}</span>
           </div>
         )}
       </Modal>

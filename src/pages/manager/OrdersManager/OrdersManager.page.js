@@ -96,14 +96,7 @@ class OrdersPanel extends Component {
                       >
                         <OrdersManagerModal
                           buttonLabel="برسی سفارش"
-                          name={item.name}
-                          address={item.address}
-                          phone={item.phone}
-                          deliverTime={item.deliverTime}
-                          orderRegister={item.orderRegister}
-                          deliveryEndTime={item.deliveryEndTime}
-                          basket={item.basket}
-                          deliverd={item.deliverd}
+                          data={item}
                         />
                       </span>
                     </td>
