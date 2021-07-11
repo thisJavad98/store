@@ -11,7 +11,7 @@ class QuantityPanel extends Component {
     currentPage: 1,
     productPerPage: 5,
     changeItems: [],
-    flag: false,
+    btnStyle: false,
   };
   async componentDidMount() {
     this.setState({ products: await getProducts(), changeItems: [] });
@@ -21,9 +21,9 @@ class QuantityPanel extends Component {
     });
   }
 
-  onChangeHandel(flag, newValue, index, changeType) {
-    console.log(flag);
+  onChangeHandel(newValue, index, changeType) {
     this.setState({
+      btnStyle: true,
       changeItems: [
         ...this.state.changeItems,
         { index: index, changeType: changeType, newValue: newValue },
@@ -39,8 +39,12 @@ class QuantityPanel extends Component {
     );
   }
   onSkipChange(e) {
-    if (e.keyCode === 27) console.log("areeeeeeeee");
+    console.log(e.target);
+    if (e.key === "Escape") console.log("areeeeeeeee");
     else console.log("ridiiii");
+  }
+  cancelChange() {
+    this.setState({ changeItems: [] });
   }
   render() {
     return (
@@ -49,13 +53,28 @@ class QuantityPanel extends Component {
           <div>
             <a href="http://localhost:3000/panel-quantity">
               <Button
-                onClick={() => this.updateTable()}
-                color="success"
-                className="ps-4 pe-4 p-2"
+                onClick={() => (this.state.btnStyle ? this.updateTable() : "")}
+                color={"success"}
+                className={`ps-4 pe-4 p-2 ${
+                  this.state.btnStyle ? "" : "disabled"
+                }`}
               >
                 ذخیره
               </Button>
             </a>
+            {this.state.btnStyle ? (
+              <a href="http://localhost:3000/panel-quantity">
+                <Button
+                  onClick={() => this.cancelChange}
+                  color={"danger"}
+                  className={`ps-4 pe-4 p-2 ms-3 `}
+                >
+                  پاک کردن تغیرات
+                </Button>
+              </a>
+            ) : (
+              ""
+            )}
           </div>
           <>
             <h3>مدیریت موجودی و قیمت ها</h3>

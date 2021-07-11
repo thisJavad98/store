@@ -9,11 +9,7 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import {
-  editeProduct,
-  postProduct,
-  uploadImage,
-} from "../../../api/JavadShop.api";
+import { editeProduct, postProduct } from "../../../api/JavadShop.api";
 
 const PeoductManagerModal = (props) => {
   const {
