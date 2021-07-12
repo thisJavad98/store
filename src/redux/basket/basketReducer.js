@@ -3,10 +3,17 @@ import {
   DELETE_PRODUCT_FROM_BASKET,
 } from "./basketTypes";
 
-const initialState = {
+let initialState = {
   basketProduts: [],
   basketCounter: 0,
 };
+
+
+const deletItem=(index )=>{
+  
+  initialState.basketProduts=initialState.basketProduts.filter(item=>item.id!==index)
+  return initialState.basketProduts
+}
 
 const basketReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -28,6 +35,7 @@ const basketReducer = (state = initialState, action) => {
     case DELETE_PRODUCT_FROM_BASKET:
       return {
         ...state,
+        basketProduts:deletItem(action.id),
         basketCounter: state.basketCounter - 1,
       };
     default:

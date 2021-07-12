@@ -16,8 +16,10 @@ export const addProductToBasket = (product, numberOrder) => {
   };
 };
 
-export const deleteProductFromBasket = () => {
+export const deleteProductFromBasket = (id) => {
+  --initianId
   return {
     type: DELETE_PRODUCT_FROM_BASKET,
+    id:id
   };
 };

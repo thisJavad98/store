@@ -6,6 +6,12 @@ import { mapStateToProps, mapDispatchToProps } from "../../redux/mapSelector";
 import { connect } from "react-redux";
 
 const Basket = (props) => {
+
+
+  function deleteProduct(index) {
+    console.log(index)
+    props.deleteProductFromBasket(index)
+  }
   return (
     <>
       <div className="" dir="rtl">
@@ -33,7 +39,11 @@ const Basket = (props) => {
                     <td>{item.number}</td>
                     <td>{item.sumOfPrice}</td>
                     <td>
-                      <span type="button" className="text-primary">
+                      <span
+                        type="button"
+                        className="text-primary"
+                        onClick={() => deleteProduct(item.id)}
+                      >
                         {" "}
                         حذف{" "}
                       </span>
