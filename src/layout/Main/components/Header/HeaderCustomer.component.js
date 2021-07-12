@@ -6,12 +6,13 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Badge,
 } from "reactstrap";
+import { Link } from "react-router-dom";
+import { mapStateToProps,mapDispatchToProps }from "../../../../redux/mapSelector"
+import { connect } from "react-redux";
 
 const HeaderCustomer = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,29 +23,29 @@ const HeaderCustomer = (props) => {
         <>
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <Badge className="bg-warning h-25 m-0">4</Badge>
+              <Badge className="bg-warning h-25 m-0">{props.basketCounter}</Badge>
               <NavItem className="d-flex align-items-center">
-                <NavLink href="/basket">
+                <Link to="/basket" className='text-decoration-none text-dark p-2'>
                   سبد خرید
                   <IoMdBasket />
-                </NavLink>
+                </Link>
               </NavItem>
               <NavItem className="ms-3 d-flex align-items-center">
-                <NavLink href="/panel-login">
+                <Link className='text-decoration-none text-dark p-2' to="/panel-login">
                   مدیریت
                   <AiFillHome />
-                </NavLink>
+                </Link>
               </NavItem>
             </Nav>
           </Collapse>
         </>
         <>
-          <NavbarBrand href="/">
-            <span className='h5'>فروشگاه جواد</span>
+          <Link to="/" className='text-decoration-none text-dark'>
+            <span className="h5">فروشگاه جواد</span>
             <span className="ps-3 h5">
               <RiShoppingCartLine />
             </span>
-          </NavbarBrand>
+          </Link>
           <NavbarToggler onClick={toggle} />
         </>
       </Navbar>
@@ -52,4 +53,4 @@ const HeaderCustomer = (props) => {
   );
 };
 
-export default HeaderCustomer;
+export default connect(mapStateToProps,mapDispatchToProps)(HeaderCustomer);

@@ -13,68 +13,76 @@ import ProductPage from "../pages/customer/Product.page";
 import CheckOut from "../pages/customer/CheckOut.page";
 import PaymentPage from "../pages/customer/Payment.page";
 import ResultPayment from "../pages/customer/PayResult.page";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 const AppRoute = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route
-          render={({ location }) => {
-            return (
-              <Switch location={location}>
-                <Route path={`/products`}>
-                  <MainLayout headerType="customer" />
-                  <ProductsPage groupTitle={location.pathname.split("/")[2]} />
-                </Route>
-                <Route path="/product">
-                  <MainLayout headerType="customer" />
-                  <ProductPage productName={location.pathname.split("/")[2]} />
-                </Route>
-                <Route path="/basket">
-                  <MainLayout headerType="customer" />
-                  <Basket />
-                </Route>
-                <Route path="/checkout">
-                  <MainLayout headerType="customer" />
-                  <CheckOut />
-                </Route>
-                <Route path="/payment">
-                  <PaymentPage />
-                </Route>
-                <Route path="/payment-result-success">
-                  <ResultPayment />
-                </Route>
-                <Route path="/payment-result-fail">
-                  <ResultPayment />
-                </Route>
-                <Route path="/panel-login">
-                  <LoginPage />
-                </Route>
-                <Route path="/panel-product">
-                  <MainLayout headerType="panelProduct" />
-                  <ManageProduct />
-                </Route>
-                <Route path="/panel-quantity">
-                  <MainLayout headerType="panelQuntity" />
-                  <QuantityPanel />
-                </Route>
-                <Route path="/panel-orders">
-                  <MainLayout headerType="panelOrders" />
-                  <OrdersPanel />
-                </Route>
-                <Route path="/" exact>
-                  <MainLayout headerType="customer" />
-                  <HomePage />
-                </Route>
-                <Route path="/*">
-                  <PageNotFoundl />
-                </Route>
-              </Switch>
-            );
-          }}
-        />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            render={({ location }) => {
+              return (
+                <Switch location={location}>
+                  <Route path={`/products`}>
+                    <MainLayout headerType="customer" />
+                    <ProductsPage
+                      groupTitle={location.pathname.split("/")[2]}
+                    />
+                  </Route>
+                  <Route path="/product">
+                    <MainLayout headerType="customer" />
+                    <ProductPage
+                      productName={location.pathname.split("/")[2]}
+                    />
+                  </Route>
+                  <Route path="/basket">
+                    <MainLayout headerType="customer" />
+                    <Basket />
+                  </Route>
+                  <Route path="/checkout">
+                    <MainLayout headerType="customer" />
+                    <CheckOut />
+                  </Route>
+                  <Route path="/payment">
+                    <PaymentPage />
+                  </Route>
+                  <Route path="/payment-result-success">
+                    <ResultPayment />
+                  </Route>
+                  <Route path="/payment-result-fail">
+                    <ResultPayment />
+                  </Route>
+                  <Route path="/panel-login">
+                    <LoginPage />
+                  </Route>
+                  <Route path="/panel-product">
+                    <MainLayout headerType="panelProduct" />
+                    <ManageProduct />
+                  </Route>
+                  <Route path="/panel-quantity">
+                    <MainLayout headerType="panelQuntity" />
+                    <QuantityPanel />
+                  </Route>
+                  <Route path="/panel-orders">
+                    <MainLayout headerType="panelOrders" />
+                    <OrdersPanel />
+                  </Route>
+                  <Route path="/" exact>
+                    <MainLayout headerType="customer" />
+                    <HomePage />
+                  </Route>
+                  <Route path="/*">
+                    <PageNotFoundl />
+                  </Route>
+                </Switch>
+              );
+            }}
+          />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

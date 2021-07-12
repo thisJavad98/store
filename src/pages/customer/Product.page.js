@@ -4,6 +4,10 @@ import { getProductData } from "../../api/JavadShop.api";
 import { Button } from "reactstrap";
 import { FaPlusCircle } from "react-icons/fa";
 
+import{ connect }from "react-redux"
+import{ addProductToBasket }from "../../redux/basket/basketActions"
+import { Link } from "react-router-dom";
+
 class ProductPage extends Component {
   state = {
     productData: {},
@@ -16,7 +20,10 @@ class ProductPage extends Component {
     });
     this.setState({ data: await this.state.productData[0] });
   }
-
+  addToBasket=()=>{
+    this.props.addProductToBasket(this.state.data , this.state.numberOfOrder)
+    alert(` کالای "${this.state.data.name}" به تعداد ${this.state.numberOfOrder} عدد به سبد خرید شما افزوده شد. `)
+  }
   render() {
     return (
       <div dir="rtl" className="p-5 m-3">
@@ -34,12 +41,12 @@ class ProductPage extends Component {
             <div className="h1 mt-4">{this.state.data.name}</div>
             <div className="mt-5 h5">
               <span>
-                <a
+                <Link
                   className="text-decoration-none"
-                  href={`http://localhost:3000/products/${this.state.data.groupTitle}`}
+                  to={`/products/${this.state.data.groupTitle}`}
                 >
                   {this.state.data.groupTitle}
-                </a>
+                </Link>
               </span>
               <span className="ms-2 me-2">-</span>
               <span>{this.state.data.group}</span>
@@ -52,13 +59,14 @@ class ProductPage extends Component {
                 <span className=" ms-5 ">
                   <input
                     type="number"
-                    defaultValue="1"
+                    value={this.state.numberOfOrder}
+                    onChange={(e)=>this.setState({numberOfOrder:e.target.value})}
                     className="shadow-sm p-2 border-0 bg-secondary text-light rounded"
                     min="1"
                     max={`${this.state.data.inventory}`}
                   ></input>
                 </span>
-                <Button color="success" className="p-3" type="submit">
+                <Button onClick={this.addToBasket} color="success" className="p-3">
                   <span className="h5">
                     افزدون به سبد خرید <FaPlusCircle />
                   </span>
@@ -78,4 +86,4 @@ class ProductPage extends Component {
   }
 }
 
-export default ProductPage;
+export default connect(null, { addProductToBasket })(ProductPage);

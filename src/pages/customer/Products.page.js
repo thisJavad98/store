@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import { getGroupProduct, getProductGroup } from "../../api/JavadShop.api";
 import ProductGroup from "../../components/GroupProduct/GroupProduct.component";
 
@@ -14,6 +15,11 @@ class ProductsPage extends Component {
       sidebarData: await getGroupProduct(),
     });
   }
+  updatePage=async(title)=>{
+    this.setState({
+      data:await getProductGroup(title)
+    })
+  }
   render() {
     return (
       <div dir="rtl" className="w-100 d-flex row">
@@ -21,12 +27,13 @@ class ProductsPage extends Component {
           <aside>
             <dl>
               <dt>
-                <a
+                <Link
                   className="h6 text-decoration-none text-dark"
-                  href="http://localhost:3000/products/کالاهای اساسی و خاربار"
+                  to="/products/کالاهای اساسی و خاربار"
+                  onClick={()=>this.updatePage("کالاهای اساسی و خاربار")}
                 >
                   کالاهای اساسی و خاربار
-                </a>
+                </Link>
               </dt>
               {this.state.sidebarData.map((item,index) =>
                 item.groupTitle === "کالاهای اساسی و خاربار" ? (
@@ -36,12 +43,13 @@ class ProductsPage extends Component {
                 )
               )}
               <dt>
-                <a
+                <Link
                   className="h6 text-decoration-none text-dark"
-                  href="http://localhost:3000/products/لبنیات"
+                  to="/products/لبنیات"
+                  onClick={()=>this.updatePage("لبنیات")}
                 >
                   لبنیات
-                </a>
+                </Link>
               </dt>
               {this.state.sidebarData.map((item,index) =>
                 item.groupTitle === "لبنیات" ? <dd key={index} className='text-secondary'>{item.title}</dd> : ""

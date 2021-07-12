@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import ProductCard from "../Proudoct/Product.component";
 
 class ProductGroup extends Component {
@@ -7,14 +8,14 @@ class ProductGroup extends Component {
     return (
       <>
         <span className=" h3 text-primary">
-          <a href={this.props.title} className="text-decoration-none">
+          <Link to={this.props.title} className="text-decoration-none">
             {this.props.title.split("/")[2]}
             {this.props.flagHomePage ? (
               <span className="h6"> (مشاهده کامل لیست کالا) </span>
             ) : (
               ""
             )}
-          </a>
+          </Link>
         </span>
         <br></br>
 

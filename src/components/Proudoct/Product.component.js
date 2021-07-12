@@ -1,11 +1,12 @@
 import React from "react";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ProductCard extends Component {
   render() {
     return (
-      <a
-        href={`http://localhost:3000/product/${this.props.productData.name}`}
+      <Link
+        to={`/product/${this.props.productData.name}`}
         className="text-decoration-none"
       >
         <div className="border shadow rounded row p-3 pe-0 ">
@@ -25,7 +26,7 @@ class ProductCard extends Component {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     );
   }
 }
