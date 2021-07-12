@@ -60,13 +60,13 @@ class ProductPage extends Component {
                   <input
                     type="number"
                     value={this.state.numberOfOrder}
-                    onChange={(e)=>this.setState({numberOfOrder:e.target.value})}
+                    onChange={(e)=> this.state.data.inventory>=e.target.value ? this.setState({numberOfOrder:e.target.value}) :  alert(`تعداد سفارش شما از موجودی این کالا بیشتر است!!! (تعداد موجودی کالا :${this.state.data.inventory})`) }
                     className="shadow-sm p-2 border-0 bg-secondary text-light rounded"
                     min="1"
                     max={`${this.state.data.inventory}`}
                   ></input>
                 </span>
-                <Button onClick={this.addToBasket} color="success" className="p-3">
+                <Button onClick={()=>this.addToBasket()} color="success" className="p-3">
                   <span className="h5">
                     افزدون به سبد خرید <FaPlusCircle />
                   </span>
