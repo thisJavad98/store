@@ -12,7 +12,7 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    addProductToBasket: () => dispatch(addProductToBasket()),
-    deleteProductFromBasket: () => dispatch(deleteProductFromBasket()),
+    addProductToBasket: (product, numberOrder) => dispatch(addProductToBasket(product, numberOrder)),
+    deleteProductFromBasket: (id) => dispatch(deleteProductFromBasket(id)),
   };
 };

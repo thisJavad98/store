@@ -8,10 +8,6 @@ import { connect } from "react-redux";
 const Basket = (props) => {
 
 
-  function deleteProduct(index) {
-    console.log(index)
-    props.deleteProductFromBasket(index)
-  }
   return (
     <>
       <div className="" dir="rtl">
@@ -42,7 +38,10 @@ const Basket = (props) => {
                       <span
                         type="button"
                         className="text-primary"
-                        onClick={() => deleteProduct(item.id)}
+                        onClick={() => {
+                          props.deleteProductFromBasket(item.id)
+                          console.log(item.id);
+                        }}
                       >
                         {" "}
                         حذف{" "}

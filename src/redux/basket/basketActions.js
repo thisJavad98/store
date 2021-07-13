@@ -20,6 +20,6 @@ export const deleteProductFromBasket = (id) => {
   --initianId
   return {
     type: DELETE_PRODUCT_FROM_BASKET,
-    id:id
+    id:id,
   };
 };

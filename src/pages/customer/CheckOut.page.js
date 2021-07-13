@@ -40,7 +40,9 @@ class CheckOut extends Component {
       this.state.information.dateOfSend.valid
     ) {
       console.log("send to pay page");
-    } else console.log("form is not valid");
+    } else {
+      console.log("form is not valid");
+    }
   }
   render() {
     return (
