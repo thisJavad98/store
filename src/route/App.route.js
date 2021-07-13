@@ -11,10 +11,10 @@ import HomePage from "../pages/customer/Home.page";
 import ProductsPage from "../pages/customer/Products.page";
 import ProductPage from "../pages/customer/Product.page";
 import CheckOut from "../pages/customer/CheckOut.page";
-import PaymentPage from "../pages/customer/Payment.page";
 import ResultPayment from "../pages/customer/PayResult.page";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import HeaderCustomer from "../layout/Main/components/Header/HeaderCustomer.component";
 
 const AppRoute = () => {
   return (
@@ -45,14 +45,13 @@ const AppRoute = () => {
                     <MainLayout headerType="customer" />
                     <CheckOut />
                   </Route>
-                  <Route path="/payment">
-                    <PaymentPage />
-                  </Route>
                   <Route path="/payment-result-success">
-                    <ResultPayment />
+                    <HeaderCustomer resultPay={"success"}/>
+                    <ResultPayment resultPay={"success"}/>
                   </Route>
                   <Route path="/payment-result-fail">
-                    <ResultPayment />
+                  <HeaderCustomer resultPay={"fail"}/>
+                    <ResultPayment resultPay={"fail"}/>
                   </Route>
                   <Route path="/panel-login">
                     <LoginPage />

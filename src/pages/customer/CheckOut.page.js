@@ -40,6 +40,7 @@ class CheckOut extends Component {
       this.state.information.dateOfSend.valid
     ) {
       console.log("send to pay page");
+      window.location.pathname="/payment-page.html"
     } else {
       console.log("form is not valid");
     }
@@ -183,7 +184,7 @@ class CheckOut extends Component {
                 color="success"
                 className="ps-5 pe-5 p-2"
                 type="button"
-                onClick={() => this.clickHandler()}
+                onClick={() => {this.clickHandler();}}
               >
                 {" "}
                 پرداخت{" "}

@@ -68,7 +68,9 @@ const Basket = (props) => {
             </div>
             <Link
               to="/checkout"
-              className="mb-5 me-5 text-decoration-none bg-success text-light p-3 ps-4 pe-4 rounded"
+              className={`mb-5 me-5 text-decoration-none  text-light p-3 ps-4 pe-4 rounded ${
+                props.basketTotalPrice ? "bg-success" : "bg-secondary"
+              }`}
             >
               نهایی کردن سبد خرید
             </Link>
