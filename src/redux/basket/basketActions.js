@@ -1,7 +1,8 @@
 import {
   ADD_PRODUCT_TO_BASKET,
   DELETE_PRODUCT_FROM_BASKET,
-  CHANGE_NUMBER_OF_ORDER
+  CHANGE_NUMBER_OF_ORDER,
+  FAIL_PAYMENT,
 } from "./basketTypes";
 
 let initianId = 0;
@@ -26,10 +27,19 @@ export const deleteProductFromBasket = (id, productPrice) => {
   };
 };
 
-export const changeNumberOfOrder = (id , newNumber) =>{
+export const changeNumberOfOrder = (id, newNumber) => {
   return {
-    type:CHANGE_NUMBER_OF_ORDER,
-    id:id,
-    newNumber:newNumber
-  }
-}
+    type: CHANGE_NUMBER_OF_ORDER,
+    id: id,
+    newNumber: newNumber,
+  };
+};
+
+export const failPayment = (prodects) => {
+  return {
+    type: FAIL_PAYMENT,
+    prodects: prodects.basketProduts,
+    nmber: prodects.basketCounter,
+    totalPrice: prodects.basketTotalPrice,
+  };
+};

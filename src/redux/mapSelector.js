@@ -2,6 +2,7 @@ import {
   addProductToBasket,
   deleteProductFromBasket,
   changeNumberOfOrder,
+  failPayment,
 } from "./index";
 
 export const mapStateToProps = (state) => {
@@ -22,5 +23,8 @@ export const mapDispatchToProps = (dispatch) => {
 
     changeNumberOfOrder: (id, newNumber) =>
       dispatch(changeNumberOfOrder(id, newNumber)),
+
+    failPayment: (prodects) =>
+      dispatch(failPayment(prodects)),
   };
 };

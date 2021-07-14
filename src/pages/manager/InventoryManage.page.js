@@ -92,7 +92,7 @@ class QuantityPanel extends Component {
             <tbody>
               {this.state.productShow.map((item, index) => {
                 return (
-                  <tr key={item.id}>
+                  <tr key={index}>
                     <td>{item.name}</td>
                     <td>
                       <input
@@ -103,7 +103,7 @@ class QuantityPanel extends Component {
                         onKeyPress={(e) => this.onSkipChange(e)}
                         onChange={(e) =>
                           this.onChangeHandel(
-                            e.target.value,
+                            +e.target.value,
                             item.id,
                             e.target.name
                           )
@@ -119,7 +119,7 @@ class QuantityPanel extends Component {
                         onKeyPress={(e) => this.onSkipChange(e)}
                         onChange={(e) =>
                           this.onChangeHandel(
-                            e.target.value,
+                            +e.target.value,
                             item.id,
                             e.target.name
                           )

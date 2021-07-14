@@ -6,6 +6,7 @@ import { mapStateToProps, mapDispatchToProps } from "../../redux/mapSelector";
 import { connect } from "react-redux";
 
 const Basket = (props) => {
+  
   return (
     <>
       <div className="" dir="rtl">

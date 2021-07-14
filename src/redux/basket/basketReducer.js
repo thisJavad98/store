@@ -2,6 +2,7 @@ import {
   ADD_PRODUCT_TO_BASKET,
   DELETE_PRODUCT_FROM_BASKET,
   CHANGE_NUMBER_OF_ORDER,
+  FAIL_PAYMENT,
 } from "./basketTypes";
 
 let initialState = {
@@ -10,8 +11,8 @@ let initialState = {
   basketTotalPrice: 0,
 };
 
-let newPrice=0
-let tempPrice=0
+let newPrice = 0;
+let tempPrice = 0;
 
 const basketReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -45,16 +46,23 @@ const basketReducer = (state = initialState, action) => {
     case CHANGE_NUMBER_OF_ORDER:
       return {
         ...state,
-        basketProduts:state.basketProduts.map(item=>{
-          if(item.id === action.id){
-            tempPrice=item.sumOfPrice
-            item.number = action.newNumber
-            item.sumOfPrice=(item.number*item.data.price)
-            newPrice=item.sumOfPrice-tempPrice
-            return item
-          }else return item
+        basketProduts: state.basketProduts.map((item) => {
+          if (item.id === action.id) {
+            tempPrice = item.sumOfPrice;
+            item.number = action.newNumber;
+            item.sumOfPrice = item.number * item.data.price;
+            newPrice = item.sumOfPrice - tempPrice;
+            return item;
+          } else return item;
         }),
-        basketTotalPrice:state.basketTotalPrice + newPrice
+        basketTotalPrice: state.basketTotalPrice + newPrice,
+      };
+    case FAIL_PAYMENT:
+      return {
+        ...state,
+        basketProduts: action.prodects,
+        basketCounter: action.nmber,
+        basketTotalPrice: action.totalPrice,
       };
     default:
       return state;

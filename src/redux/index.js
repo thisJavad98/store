@@ -1,5 +1,6 @@
 export {
   addProductToBasket,
   deleteProductFromBasket,
-  changeNumberOfOrder
+  changeNumberOfOrder,
+  failPayment
 } from "./basket/basketActions";

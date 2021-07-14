@@ -1,7 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-
+import { connect } from "react-redux";
+import { mapStateToProps } from "../../redux/mapSelector";
+import { postDataOrder } from "../../api/JavadShop.api";
 class CheckOut extends Component {
   state = {
     information: {
@@ -11,7 +13,19 @@ class CheckOut extends Component {
       phoneNumber: { data: "", valid: false },
       dateOfSend: { data: "", valid: false },
     },
+    basket: {},
   };
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      basket: {
+        basketProduts: this.props.basketProduts,
+        basketCounter: this.props.basketCounter,
+        basketTotalPrice: this.props.basketTotalPrice,
+      },
+    });
+  }
 
   changeHandel(value, type) {
     if (value === "") {
@@ -31,7 +45,7 @@ class CheckOut extends Component {
     }
   }
 
-  clickHandler() {
+  async clickHandler() {
     if (
       this.state.information.firstName.valid &&
       this.state.information.lastName.valid &&
@@ -40,9 +54,29 @@ class CheckOut extends Component {
       this.state.information.dateOfSend.valid
     ) {
       console.log("send to pay page");
-      window.location.pathname="/payment-page.html"
+      await postDataOrder({
+        id: this.state.information.firstName.data,
+        name: this.state.information.firstName.data,
+        address: this.state.information.adress.data,
+        phone: this.state.information.phoneNumber.data,
+        totalPrice: this.props.basketTotalPrice,
+        deliverTime: this.state.information.dateOfSend.data,
+        orderRegister: "October 18, 2021 11:13:00",
+        deliveryEndTime: this.state.information.dateOfSend.data,
+        deliverd: "no",
+        paymentResult: "no",
+        basket: this.props.basketProduts.map((item) => {
+          return {
+            productName: item.data.name,
+            number: item.number,
+            price: item.sumOfPrice,
+          };
+        }),
+      });
+      window.location.pathname = `/payment-page.html`;
+      localStorage.setItem("orders", this.state.information.firstName.data);
     } else {
-      console.log("form is not valid");
+      alert("لطفا فرم را با دقت بیشتری پر کنید!");
     }
   }
   render() {
@@ -184,7 +218,9 @@ class CheckOut extends Component {
                 color="success"
                 className="ps-5 pe-5 p-2"
                 type="button"
-                onClick={() => {this.clickHandler();}}
+                onClick={() => {
+                  this.clickHandler();
+                }}
               >
                 {" "}
                 پرداخت{" "}
@@ -197,4 +233,4 @@ class CheckOut extends Component {
   }
 }
 
-export default CheckOut;
+export default connect(mapStateToProps, null)(CheckOut);
