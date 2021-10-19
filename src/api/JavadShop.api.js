@@ -5,6 +5,13 @@ const httpApi = axios.create();
 
 httpApi.defaults.baseURL = BASE_URL;
 
+export async function getAdmins() {
+  return await httpApi
+    .get("/Users")
+    .then((response) => response.data)
+    .catch((error) => console.log(error));
+}
+
 export async function getOrders() {
   return await httpApi
     .get(`/Order`)
