@@ -11,9 +11,9 @@ class LoginPage extends Component {
     password: "",
     page: "login",
   };
-  async componentDidMount() {
+  getUsers = async () => {
     this.setState({ ...this.state, users: await getAdmins() });
-  }
+  };
   render() {
     switch (this.state.page) {
       case "login":
@@ -51,6 +51,7 @@ class LoginPage extends Component {
               </FormGroup>
               <div
                 onClick={async () => {
+                  await this.getUsers();
                   this.state.users.map((item) => {
                     if (
                       item.userName === this.state.userName &&
