@@ -85,6 +85,6 @@ server.use((req, res, next) => {
 // Use default router (CRUDs of db.json)
 server.use(router)
 
-server.listen(5000, () => {
+server.listen(3002, () => {
   console.log('Customized JSON-Server is running at http://localhost:5000/')
 })

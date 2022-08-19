@@ -20,14 +20,14 @@
   "devDependencies": {
     "json-server": "^0.16.3",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.19"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "nodemon server"
+    "backend": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": [
