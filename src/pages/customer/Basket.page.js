@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Table } from "reactstrap";
+import { Button, Table, Toast } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 import { mapStateToProps, mapDispatchToProps } from "../../redux/mapSelector";
 import { connect } from "react-redux";
 
+import { toast } from "react-toastify";
+
 const Basket = (props) => {
-  
+  const history = useHistory();
   return (
     <>
       <div className="" dir="rtl">
@@ -33,11 +36,20 @@ const Basket = (props) => {
                     <td>{item.data.price}</td>
                     <td>
                       <input
-                        className='bg-transparent border-0'
+                        className="bg-transparent border-0"
                         type="number"
                         value={item.number}
                         min="1"
-                        onChange={(e)=> e.target.value<=item.data.inventory ? props.changeNumberOfOrder(item.id , +e.target.value) : alert(`تعداد سفارش شما از موجودی این کالا بیشتر است!!! (تعداد موجودی کالا :${item.data.inventory})`) }
+                        onChange={(e) =>
+                          e.target.value <= item.data.inventory
+                            ? props.changeNumberOfOrder(
+                                item.id,
+                                +e.target.value
+                              )
+                            : alert(
+                                `تعداد سفارش شما از موجودی این کالا بیشتر است!!! (تعداد موجودی کالا :${item.data.inventory})`
+                              )
+                        }
                         max={item.data.inventory}
                       />
                     </td>
@@ -67,14 +79,27 @@ const Basket = (props) => {
             <div className="h4 mb-5 ms-5 p-3">
               جمع : {props.basketTotalPrice} تومان
             </div>
-            <Link
+
+            <Button
+              className={`mb-5 me-5 text-decoration-none  text-light p-3 ps-4 pe-4 rounded ${
+                props.basketTotalPrice ? "bg-success" : "bg-secondary"
+              }`}
+              onClick={() => {
+                props.basketTotalPrice
+                  ? history.replace("/checkout")
+                  : console.log("basket is empty");
+              }}
+            >
+              نهایی کردن سبد خرید
+            </Button>
+            {/* <Link
               to="/checkout"
               className={`mb-5 me-5 text-decoration-none  text-light p-3 ps-4 pe-4 rounded ${
                 props.basketTotalPrice ? "bg-success" : "bg-secondary"
               }`}
             >
               نهایی کردن سبد خرید
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
