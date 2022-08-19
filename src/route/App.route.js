@@ -15,17 +15,18 @@ import ResultPayment from "../pages/customer/PayResult.page";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import HeaderCustomer from "../layout/Main/components/Header/HeaderCustomer.component";
+import { ToastContainer } from "react-toastify";
 
 const AppRoute = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <ToastContainer />
         <Switch>
           <Route
             render={({ location }) => {
               return (
                 <Switch location={location}>
-                 
                   <Route path={`/products`}>
                     <MainLayout headerType="customer" />
                     <ProductsPage
@@ -47,12 +48,12 @@ const AppRoute = () => {
                     <CheckOut />
                   </Route>
                   <Route path="/payment-result-success">
-                    <HeaderCustomer resultPay={"success"}/>
-                    <ResultPayment resultPay={"success"}/>
+                    <HeaderCustomer resultPay={"success"} />
+                    <ResultPayment resultPay={"success"} />
                   </Route>
                   <Route path="/payment-result-fail">
-                  <HeaderCustomer resultPay={"fail"}/>
-                    <ResultPayment resultPay={"fail"}/>
+                    <HeaderCustomer resultPay={"fail"} />
+                    <ResultPayment resultPay={"fail"} />
                   </Route>
                   <Route path="/panel-login">
                     <LoginPage />
