@@ -20,20 +20,26 @@ class ProductGroup extends Component {
         <br></br>
 
         <div className="d-flex justify-content-between row ">
-          {this.props.data.map((item, index) =>
-            this.props.flagHomePage ? (
-              index < 6 ? (
+          {this.props.data ? (
+            this.props.data.map((item, index) =>
+              this.props.flagHomePage ? (
+                index < 6 ? (
+                  <div className="col-md-5 col-xl-3 m-4" key={item.id}>
+                    <ProductCard productData={item} />
+                  </div>
+                ) : (
+                  ""
+                )
+              ) : (
                 <div className="col-md-5 col-xl-3 m-4" key={item.id}>
                   <ProductCard productData={item} />
                 </div>
-              ) : (
-                ""
               )
-            ) : (
-              <div className="col-md-5 col-xl-3 m-4" key={item.id}>
-                <ProductCard productData={item} />
-              </div>
             )
+          ) : (
+            <>
+              <img height={"300"} src={"/assets/svg/Empty.svg"} />
+            </>
           )}
         </div>
       </>

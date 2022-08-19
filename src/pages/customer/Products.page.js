@@ -15,11 +15,11 @@ class ProductsPage extends Component {
       sidebarData: await getGroupProduct(),
     });
   }
-  updatePage=async(title)=>{
+  updatePage = async (title) => {
     this.setState({
-      data:await getProductGroup(title)
-    })
-  }
+      data: await getProductGroup(title),
+    });
+  };
   render() {
     return (
       <div dir="rtl" className="w-100 d-flex row">
@@ -30,30 +30,40 @@ class ProductsPage extends Component {
                 <Link
                   className="h6 text-decoration-none text-dark"
                   to="/products/کالاهای اساسی و خاربار"
-                  onClick={()=>this.updatePage("کالاهای اساسی و خاربار")}
+                  onClick={() => this.updatePage("کالاهای اساسی و خاربار")}
                 >
                   کالاهای اساسی و خاربار
                 </Link>
               </dt>
-              {this.state.sidebarData.map((item,index) =>
-                item.groupTitle === "کالاهای اساسی و خاربار" ? (
-                  <dd key={index} className='text-secondary'>{item.title}</dd>
-                ) : (
-                  ""
-                )
-              )}
+              {this.state.sidebarData &&
+                this.state.sidebarData.map((item, index) =>
+                  item.groupTitle === "کالاهای اساسی و خاربار" ? (
+                    <dd key={index} className="text-secondary">
+                      {item.title}
+                    </dd>
+                  ) : (
+                    ""
+                  )
+                )}
               <dt>
                 <Link
                   className="h6 text-decoration-none text-dark"
                   to="/products/لبنیات"
-                  onClick={()=>this.updatePage("لبنیات")}
+                  onClick={() => this.updatePage("لبنیات")}
                 >
                   لبنیات
                 </Link>
               </dt>
-              {this.state.sidebarData.map((item,index) =>
-                item.groupTitle === "لبنیات" ? <dd key={index} className='text-secondary'>{item.title}</dd> : ""
-              )}
+              {this.state.sidebarData &&
+                this.state.sidebarData.map((item, index) =>
+                  item.groupTitle === "لبنیات" ? (
+                    <dd key={index} className="text-secondary">
+                      {item.title}
+                    </dd>
+                  ) : (
+                    ""
+                  )
+                )}
             </dl>
           </aside>
         </div>

@@ -25,6 +25,7 @@ const AppRoute = () => {
             render={({ location }) => {
               return (
                 <Switch location={location}>
+                 
                   <Route path={`/products`}>
                     <MainLayout headerType="customer" />
                     <ProductsPage
