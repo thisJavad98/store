@@ -19,7 +19,11 @@ class LoginPage extends Component {
       case "login":
         return (
           <div className="vh-100 d-flex justify-content-center align-items-center">
-            <Form className="p-4 border rounded shadow p-3 mb-5 bg-white rounded">
+            <div className="me-4">
+            <img height={"600"} src={"/assets/svg/login.svg"} />
+            </div>
+            <Form className="p-4
+             border rounded shadow p-3 mb-5 bg-white rounded">
               <FormText className="d-flex justify-content-center fs-4">
                 ورود به پنل مدیریت فروشگاه جواد
               </FormText>
