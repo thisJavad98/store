@@ -4,8 +4,8 @@ import { getProductData } from "../../api/JavadShop.api";
 import { Button } from "reactstrap";
 import { FaPlusCircle } from "react-icons/fa";
 
-import{ connect }from "react-redux"
-import{ addProductToBasket }from "../../redux/basket/basketActions"
+import { connect } from "react-redux";
+import { addProductToBasket } from "../../redux/basket/basketActions";
 import { Link } from "react-router-dom";
 
 class ProductPage extends Component {
@@ -20,10 +20,12 @@ class ProductPage extends Component {
     });
     this.setState({ data: await this.state.productData[0] });
   }
-  addToBasket=()=>{
-    this.props.addProductToBasket(this.state.data , this.state.numberOfOrder)
-    alert(` کالای "${this.state.data.name}" به تعداد ${this.state.numberOfOrder} عدد به سبد خرید شما افزوده شد. `)
-  }
+  addToBasket = () => {
+    this.props.addProductToBasket(this.state.data, this.state.numberOfOrder);
+    alert(
+      ` کالای "${this.state.data.name}" به تعداد ${this.state.numberOfOrder} عدد به سبد خرید شما افزوده شد. `
+    );
+  };
   render() {
     return (
       <div dir="rtl" className="p-5 m-3">
@@ -32,6 +34,11 @@ class ProductPage extends Component {
             <img
               alt={this.state.data.name}
               className="rounded ms-2"
+              onError={(event) => {
+                event.target.src =
+                  "/assets/image/image-not-found-scaled-1150x647.png";
+                event.onerror = null;
+              }}
               width="310px"
               height="310px"
               src={this.state.data.avatar}
@@ -60,13 +67,23 @@ class ProductPage extends Component {
                   <input
                     type="number"
                     value={this.state.numberOfOrder}
-                    onChange={(e)=> this.state.data.inventory>=e.target.value ? this.setState({numberOfOrder:e.target.value}) :  alert(`تعداد سفارش شما از موجودی این کالا بیشتر است!!! (تعداد موجودی کالا :${this.state.data.inventory})`) }
+                    onChange={(e) =>
+                      this.state.data.inventory >= e.target.value
+                        ? this.setState({ numberOfOrder: e.target.value })
+                        : alert(
+                            `تعداد سفارش شما از موجودی این کالا بیشتر است!!! (تعداد موجودی کالا :${this.state.data.inventory})`
+                          )
+                    }
                     className="shadow-sm p-2 border-0 bg-secondary text-light rounded"
                     min="1"
                     max={`${this.state.data.inventory}`}
                   ></input>
                 </span>
-                <Button onClick={()=>this.addToBasket()} color="success" className="p-3">
+                <Button
+                  onClick={() => this.addToBasket()}
+                  color="success"
+                  className="p-3"
+                >
                   <span className="h5">
                     افزدون به سبد خرید <FaPlusCircle />
                   </span>

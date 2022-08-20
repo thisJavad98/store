@@ -9,7 +9,15 @@ class ProductCard extends Component {
         to={`/product/${this.props.productData.name}`}
         className="text-decoration-none"
       >
-        <div className="border shadow rounded row p-3 pe-0 ">
+        <div
+          className="border shadow rounded row p-3 "
+          style={{
+            minHeight: "150px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <div className="col-4">
             <img
               alt={this.props.productData.name}
@@ -17,6 +25,10 @@ class ProductCard extends Component {
               width="100px"
               height="100px"
               src={this.props.productData.avatar}
+              onError={(event) => {
+                event.target.src = "/assets/image/image-not-found-scaled-1150x647.png";
+                event.onerror = null;
+              }}
             />
           </div>
           <div className="col me-3">
