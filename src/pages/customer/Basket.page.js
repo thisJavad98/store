@@ -82,7 +82,7 @@ const Basket = (props) => {
             </div>
           )}
 
-          <div className="d-flex justify-content-center align-item-center m-5 mt-5 fixed-bottom pb-5">
+          <div className="d-flex justify-content-center align-item-center m-2 mt-5 fixed-bottom pb-2">
             <div className="h4 mb-5 ms-5 p-3">
               جمع : {props.basketTotalPrice} تومان
             </div>
@@ -99,14 +99,6 @@ const Basket = (props) => {
             >
               نهایی کردن سبد خرید
             </Button>
-            {/* <Link
-              to="/checkout"
-              className={`mb-5 me-5 text-decoration-none  text-light p-3 ps-4 pe-4 rounded ${
-                props.basketTotalPrice ? "bg-success" : "bg-secondary"
-              }`}
-            >
-              نهایی کردن سبد خرید
-            </Link> */}
           </div>
         </div>
       </div>
